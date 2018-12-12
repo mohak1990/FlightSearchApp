@@ -1,0 +1,17 @@
+.appContainer {
+  width: 100%;
+  border: 1px solid black;
+  display: table;
+}
+
+.filterPanelContainer {
+  margin: 0px;
+  width: 30%;
+  float: left;
+  }
+
+.dashboardContainer {
+  margin: 0px;
+  float: right;
+  width: 70%;
+}

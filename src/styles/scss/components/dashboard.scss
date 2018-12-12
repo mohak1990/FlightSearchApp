@@ -1,0 +1,19 @@
+
+.dashboard {
+  border-left: 1px solid black;
+
+  &--header {
+    border-bottom: 1px solid black;
+    padding: 20px;
+    font-size: 20px;
+
+    &--info{
+      font-size: 15px;
+      color: grey;
+    }
+  }
+
+  &--content {
+    padding : 5px;
+  }
+}
