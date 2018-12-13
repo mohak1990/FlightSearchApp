@@ -1,0 +1,67 @@
+[{
+		"arrivalTime": "6:00",
+		"date": "2020/11/01",
+		"departureTime": "5:00",
+		"destination": "Mumbai (BOM)",
+		"flightNo": "AI-101",
+		"name": "Air India",
+		"origin": "Pune (PNQ)",
+		"price": 3525,
+		"flightType": "Multiple"
+	},
+	{
+		"arrivalTime": "6:00",
+		"date": "2020/11/01",
+		"departureTime": "5:00",
+		"destination": "Mumbai (BOM)",
+		"flightNo": "AI-101",
+		"name": "Air India",
+		"origin": "Pune (PNQ)",
+		"price": 3525,
+		"flightType": "Non-Stop"
+	},
+	{
+		"arrivalTime": "6:00",
+		"date": "2020/11/01",
+		"departureTime": "5:00",
+		"destination": "Mumbai (BOM)",
+		"flightNo": "AI-101",
+		"name": "Air India",
+		"origin": "Pune (PNQ)",
+		"price": 3525,
+		"flightType": "Non-Stop"
+	},
+	{
+		"arrivalTime": "6:00",
+		"date": "2020/11/01",
+		"departureTime": "5:00",
+		"destination": "Mumbai (BOM)",
+		"flightNo": "AI-101",
+		"name": "Air India",
+		"origin": "Pune (PNQ)",
+		"price": 3525,
+		"flightType": "Non-Stop"
+	},
+	{
+		"arrivalTime": "6:00",
+		"date": "2020/11/01",
+		"departureTime": "5:00",
+		"destination": "Mumbai (BOM)",
+		"flightNo": "AI-101",
+		"name": "Air India",
+		"origin": "Pune (PNQ)",
+		"price": 3525,
+		"flightType": "Non-Stop"
+	},
+	{
+		"arrivalTime": "6:00",
+		"date": "2020/11/01",
+		"departureTime": "5:00",
+		"destination": "Mumbai (BOM)",
+		"flightNo": "AI-101",
+		"name": "Air India",
+		"origin": "Pune (PNQ)",
+		"price": 3525,
+		"flightType": "Multiple"
+	}
+]

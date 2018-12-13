@@ -14,20 +14,22 @@ class InputComponent extends React.Component {
     const name = this.props.name;
     const options = this.props.options;
     const className = this.props.className;
-    const spaceholder = this.props.spaceholder;
-    
+    const placeholder = this.props.placeholder;
+
     if(type != "select")
     {
       return (
-         <input className = {className} type={type} value = {this.props.value} spaceholder={spaceholder} />
+         <input className = {className} type={type} value = {this.props.value} placeholder={placeholder} />
       );
     }
     else {
       return (
         <Type className = {className} onChange={(e)=>alert(e.target.value)}>
-          <option>
-            Select Passengers
+          {placeholder &&
+          <option disabled selected="true">
+              {placeholder}
           </option>
+          }
           {options.map((obj, i) => {
             return (
               <option value = {obj.value}>

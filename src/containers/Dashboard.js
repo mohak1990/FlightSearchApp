@@ -1,30 +1,30 @@
 import React from 'react';
 import Dashboard from '../components/dashboard'
 import { connect } from 'react-redux'
-import {  } from '../modules/dashboard'
+import { getFlights } from '../modules/dashboard'
 
 
-class LoginContainer extends React.Component {
+class DashboardContainer extends React.Component {
 
   render() {
     return (
-        <Dashboard />
+        <Dashboard flights = { this.props.flights }/>
     );
   }
 }
 
 const mapStateToProps = (state, ownProps) => ({
-
+    flights: state.dashboard.flights
 })
 
 const mapDispatchToProps = function(dispatch, ownProps){
-
+  dispatch(getFlights())
   return {
-
+     getFlights: dispatch(() => getFlights()),
   }
 }
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(LoginContainer)
+)(DashboardContainer)

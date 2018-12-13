@@ -1,4 +1,5 @@
 import {createStore, applyMiddleware} from 'redux';
+import thunk from 'redux-thunk';
 //import {fromJS} from 'immutable';
 import {routerMiddleware} from 'react-router-redux';
 import createSagaMiddleware from 'redux-saga';
@@ -7,11 +8,11 @@ import logger from 'redux-logger'
 
 const sagaMiddleware = createSagaMiddleware();
 
-export default function configureStore(initialState = {visibilityFilter: {}, todos: {}}, history) {
+export default function configureStore(initialState = {dashboard: {flights: []}}, history) {
     // Create the store with two middlewares
     // 1. sagaMiddleware: Makes redux-sagas work
     // 2. routerMiddleware: Syncs the location/URL path to the state
-    const middlewares = [sagaMiddleware, routerMiddleware(history), logger];
+    const middlewares = [sagaMiddleware, thunk, routerMiddleware(history), logger];
 
     const enhancers = applyMiddleware(...middlewares);
 

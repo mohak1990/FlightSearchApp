@@ -15,4 +15,12 @@
       color: white;
     }
   }
+
+  .react-datepicker-wrapper{
+    width: 100%;
+
+    > div {
+      width: 100%;
+    }
+  }
 }

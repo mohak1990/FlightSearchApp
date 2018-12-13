@@ -10,12 +10,14 @@
     box-sizing: border-box;
     display: inline-block;
 
+    &--amount{
+      color: #e74040;
+      display: flex;
+      align-items: center;
+    }
+    
     &--info {
       font-size: 20px;
-
-      &--amount{
-        color: #e74040;
-      }
 
       &--about{
         font-size: 15px;
@@ -28,6 +30,7 @@
       border-radius: 5px;
       background: #e74040;
       color: white;
+      cursor: pointer;
       padding: 10px;
       width: 100px;
     }

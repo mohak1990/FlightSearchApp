@@ -8,10 +8,12 @@
     padding: 15px;
     box-sizing: border-box;
     display: inline-block; }
+    .flight_detail--items--amount {
+      color: #e74040;
+      display: flex;
+      align-items: center; }
     .flight_detail--items--info {
       font-size: 20px; }
-      .flight_detail--items--info--amount {
-        color: #e74040; }
       .flight_detail--items--info--about {
         font-size: 15px;
         color: grey; }
@@ -20,5 +22,6 @@
       border-radius: 5px;
       background: #e74040;
       color: white;
+      cursor: pointer;
       padding: 10px;
       width: 100px; }

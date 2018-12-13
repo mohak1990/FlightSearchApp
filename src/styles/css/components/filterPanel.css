@@ -11,3 +11,7 @@
       border-radius: 5px;
       background: #2196f3;
       color: white; }
+  .filter_panel .react-datepicker-wrapper {
+    width: 100%; }
+    .filter_panel .react-datepicker-wrapper > div {
+      width: 100%; }

@@ -1,10 +1,14 @@
 import React from 'react';
 import Input from "../userComponents/input";
 import "../../styles/css/components/flightDetail.css"
+import {getTimeDifference, getTravelTime} from "../../utils"
 
 class FlightDetail extends React.Component {
 
   render() {
+
+    let data = this.props.data;
+
     return (
       <div className="flight_detail">
         <span className="flight_detail--items">
@@ -12,39 +16,39 @@ class FlightDetail extends React.Component {
         </span>
         <span className="flight_detail--items">
           <div className="flight_detail--items--info">
-            Air India
+            {data.name}
           </div>
           <div className="flight_detail--items--info--about">
-            AI-101
+            {data.flightNo}
           </div>
         </span>
         <span className="flight_detail--items">
           <div className="flight_detail--items--info">
-            Air India
+            {data.departureTime}
           </div>
           <div className="flight_detail--items--info--about">
-            AI-101
+            {data.origin}
           </div>
         </span>
         <span className="flight_detail--items">
           <div className="flight_detail--items--info">
-            Air India
+            {data.arrivalTime}
           </div>
           <div className="flight_detail--items--info--about">
-            AI-101
+            {data.destination}
           </div>
         </span>
         <span className="flight_detail--items">
           <div className="flight_detail--items--info">
-            Air India
+            {getTravelTime(data)}
           </div>
           <div className="flight_detail--items--info--about">
             AI-101
           </div>
         </span>
-        <span className="flight_detail--items">
-          <div className="flight_detail--items--info flight_detail--items--info--amount">
-            Rs. 500
+        <span className="flight_detail--items flight_detail--items--amount">
+          <div className="flight_detail--items--info ">
+            {data.price}
           </div>
         </span>
         <span className="flight_detail--items">
