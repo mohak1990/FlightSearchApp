@@ -16,7 +16,7 @@ class Dashboard extends React.Component {
         </div>
         <div className = "dashboard--content">
           {
-            [...Array(3)].map((val, i) => {
+            [...Array(7)].map((val, i) => {
               return <FlightDetail />
             })
           }

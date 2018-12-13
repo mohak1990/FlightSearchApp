@@ -1,11 +1,10 @@
-.dashboard {
-  border-left: 1px solid black; }
-  .dashboard--header {
-    border-bottom: 1px solid black;
-    padding: 20px;
-    font-size: 20px; }
-    .dashboard--header--info {
-      font-size: 15px;
-      color: grey; }
-  .dashboard--content {
-    padding: 5px; }
+.dashboard--header {
+  border-bottom: 1px solid black;
+  padding: 20px;
+  font-size: 20px; }
+  .dashboard--header--info {
+    font-size: 15px;
+    color: grey; }
+
+.dashboard--content {
+  padding: 5px; }

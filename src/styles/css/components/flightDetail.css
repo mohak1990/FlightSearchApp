@@ -1,4 +1,24 @@
 .flight_detail {
   border: 1px solid black;
   padding: 15px;
-  margin: 10px; }
+  margin: 10px;
+  display: flex;
+  justify-content: space-between; }
+  .flight_detail--items {
+    padding: 15px;
+    box-sizing: border-box;
+    display: inline-block; }
+    .flight_detail--items--info {
+      font-size: 20px; }
+      .flight_detail--items--info--amount {
+        color: #e74040; }
+      .flight_detail--items--info--about {
+        font-size: 15px;
+        color: grey; }
+    .flight_detail--items--button {
+      border: 1px solid;
+      border-radius: 5px;
+      background: #e74040;
+      color: white;
+      padding: 10px;
+      width: 100px; }

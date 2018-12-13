@@ -1,2 +1,13 @@
 .filter_panel {
   padding: 5px; }
+  .filter_panel--element {
+    border: 1px solid;
+    box-sizing: border-box;
+    padding: 5px;
+    margin: 5px;
+    width: calc(100% - 10px); }
+    .filter_panel--element--button {
+      width: 100px;
+      border-radius: 5px;
+      background: #2196f3;
+      color: white; }

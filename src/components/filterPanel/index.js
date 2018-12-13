@@ -1,6 +1,9 @@
 import React from 'react';
 import Tabs from '../userComponents/tabs';
 import "../../styles/css/components/filterPanel.css"
+import Input from "../userComponents/input";
+
+
 class FilterPanel extends React.Component {
 
   render() {
@@ -11,23 +14,23 @@ class FilterPanel extends React.Component {
             return (
               <div label={val.type}>
                 <div>
-                  <input name="origin-city"/>
+                  <Input type="text" spaceHolder = "Enter Origin City" className="filter_panel--element" name="origin-city" placeholder="Enter Origin City" />
                 </div>
                 <div>
-                  <input name="dest-city" />
+                  <Input type="text" spaceholder = "Enter Destination City" className="filter_panel--element" name="dest-city" placeholder="Enter Destination City" />
                 </div>
                 <div>
-                  <input name="dep-date"/>
+                  <Input type="text" className="filter_panel--element" name="dep-date"/>
                 </div>
                 {val.type === "One Way"?
                 <div>
-                  <input name="return-date"/>
+                  <Input type="text" className="filter_panel--element" name="return-date" />
                 </div> : null}
                 <div>
-                  <input name="passengers"/>
+                  <Input type="select" className="filter_panel--element" options={[{value: "1", text: "1"}, {value: "2", text: "2"}, {value: "3", text: "3"}]} onSelect={[]}  name="passengers"/>
                 </div>
                 <div>
-                  <DropDownComponent data={} onSelect={} />
+                  <Input type="button" className="filter_panel--element filter_panel--element--button" name="search"  value="Search"/>
                 </div>
               </div>
             )

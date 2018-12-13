@@ -6,12 +6,15 @@
 
 .filterPanelContainer {
   margin: 0px;
-  width: 30%;
+  width: 20%;
   float: left;
-  }
+
+}
 
 .dashboardContainer {
   margin: 0px;
   float: right;
-  width: 70%;
+  width: 80%;
+  border-left: 1px solid;
+  box-sizing: border-box;
 }
