@@ -11,14 +11,22 @@ class FilterPanel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      startDate: new Date()
+      depDate: new Date(),
+      retDate: new Date()
     };
-    this.handleChange = this.handleChange.bind(this);
+    this.handleChangeDep = this.handleChangeDep.bind(this);
+    this.handleChangeRet = this.handleChangeRet.bind(this);
   }
 
-  handleChange(date) {
+  handleChangeDep(date) {
     this.setState({
-      startDate: date
+      depDate: date
+    });
+  }
+
+  handleChangeRet(date) {
+    this.setState({
+      retDate: date
     });
   }
 
@@ -38,20 +46,20 @@ class FilterPanel extends React.Component {
                 <div>
                   <DatePicker
                     className="filter_panel--element"
-                    selected={this.state.startDate}
-                    onChange={this.handleChange}
+                    selected={this.state.depDate}
+                    onChange={this.handleChangeDep}
                   />
                 </div>
                 {val.type === "One Way"?
                 <div>
                   <DatePicker
                     className="filter_panel--element"
-                    selected={this.state.startDate}
-                    onChange={this.handleChange}
+                    selected={this.state.retDate}
+                    onChange={this.handleChangeRet}
                   />
                 </div> : null}
                 <div>
-                  <Input type="select" className="filter_panel--element" placeholder = "Select Passengers" options={[{value: "1", text: "1"}, {value: "2", text: "2"}, {value: "3", text: "3"}]} onSelect={[]}  name="passengers"/>
+                  <Input type="select" className="filter_panel--element" placeholder = "Select Passengers" options={this.props.passengers} onSelect={[]}  name="passengers"/>
                 </div>
                 <div>
                   <Input type="button" className="filter_panel--element filter_panel--element--button" name="search"  value="Search"/>

@@ -7,13 +7,13 @@ class FilterPanelContainer extends React.Component {
 
   render() {
     return (
-        <FilterPanel />
+        <FilterPanel passengers = {this.props.passengers}/>
     );
   }
 }
 
 const mapStateToProps = (state, ownProps) => ({
-
+    passengers : state.filterPanel.passengers
 })
 
 const mapDispatchToProps = function(dispatch, ownProps){

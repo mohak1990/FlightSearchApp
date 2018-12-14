@@ -9,17 +9,17 @@ class Dashboard extends React.Component {
     return (
       <div className="dashboard">
         <div className = "dashboard--header">
-          Pne to Delhi
+          Pune to Delhi
           <div className = "dashboard--header--info">
-            Pne to Delhi
+            Pune to Delhi
           </div>
         </div>
         <div className = "dashboard--content">
-          {
-            this.props.flights.map((data, i) => {
-              return <FlightDetail data = {data}/>
-            })
-          }
+        {
+          this.props.flights.map((data, i) => {
+            return <FlightDetail data = {data} expandedView = {this.props.expandedView} showDetails = {this.props.showDetails} />
+          })
+        }
         </div>
       </div>
     );

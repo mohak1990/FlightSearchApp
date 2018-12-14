@@ -5,10 +5,10 @@ import {routerMiddleware} from 'react-router-redux';
 import createSagaMiddleware from 'redux-saga';
 import rootReducer from '../modules';
 import logger from 'redux-logger'
-
+import initialObject from './initialState'
 const sagaMiddleware = createSagaMiddleware();
 
-export default function configureStore(initialState = {dashboard: {flights: []}}, history) {
+export default function configureStore(initialState = initialObject, history) {
     // Create the store with two middlewares
     // 1. sagaMiddleware: Makes redux-sagas work
     // 2. routerMiddleware: Syncs the location/URL path to the state

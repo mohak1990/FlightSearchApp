@@ -22,3 +22,19 @@ export function getTravelTime(data){
   let str = `${hours}h ${minutes}m`
   return str;
 }
+
+export function getDistinct(arr, prop){
+  const distArray = [];
+  arr.forEach((obj, i) => {
+     if(!distArray.includes(obj[prop]))
+     {
+       distArray.push(obj[prop]);
+     }
+  })
+  return distArray;
+}
+
+export function getDistinct1(array, prop){
+  const distinctData = [...new Set(array.map(obj => obj[prop])) ];
+  return distinctData;
+}

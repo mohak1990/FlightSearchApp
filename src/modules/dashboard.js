@@ -11,12 +11,17 @@ const dashboardReducer = (state = "", action) => {
       return {...state, count: action.payload}
     case 'FLIGHT_DAY':
       return {...state, day: action.payload}
+    case 'SHOW_DETAILS':
+      return {...state, expandedView: !state.expandedView}
     default:
       return state
   }
 }
 
 //--------------------actions---------------------//
+
+
+//instead of API call, mockdata has been used as mentioned per the mail
 
 // export const getFlights = () => {
 //   return (dispatch, getState) => {
@@ -56,5 +61,15 @@ export const flightDay = payload => ({
   type: 'FLIGHT_DAY',
   payload
 })
+
+export const showDetails = () => {
+  return (dispatch, getState) => {
+    dispatch({
+      type: 'SHOW_DETAILS'
+    })
+  }
+}
+
+
 
 export default dashboardReducer
