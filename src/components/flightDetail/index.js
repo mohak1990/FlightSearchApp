@@ -10,23 +10,128 @@ class FlightDetail extends React.Component {
       super(props)
   }
 
+  isMultiple(data){
+    if("multiple" in data)
+    {
+      return true
+    }
+    return false;
+  }
+
+  getFlightName(data){
+    return data.name;
+  }
+
+  getFlightNumber(data){
+    return data.flightNo;
+  }
+
+  getOrigin(data){
+    if(this.isMultiple(data))
+    {
+      return data.multiple[0].origin;
+    }
+    return data.origin;
+  }
+
+  getDepDate(data){
+
+    if(this.isMultiple(data))
+    {
+      return data.multiple[0].date;
+    }
+    return data.date;
+  }
+
+  getDepTime(data){
+
+    if(this.isMultiple(data))
+    {
+      return data.multiple[0].departureTime;
+    }
+    return data.departureTime;
+  }
+
+  getDest(data){
+    if(this.isMultiple(data))
+    {
+      return data.multiple[1].destination;
+    }
+    return data.destination;
+  }
+
+  getArrDate(data){
+    if(this.isMultiple(data))
+    {
+      return data.multiple[1].date;
+    }
+    return data.date;
+  }
+
+  getArrTime(data){
+    if(this.isMultiple(data))
+    {
+      return data.multiple[1].arrivalTime;
+    }
+    return data.arrivalTime;
+  }
+
+  getTimeTaken(data){
+      const travelTime = getTravelTime(this.getDepDate(data), this.getDepTime(data), this.getArrDate(data), this.getArrTime(data))
+      return travelTime;
+  }
+
+  getTotalPrice(data){
+    if(this.isMultiple(data)){
+      const travelPrice = data.multiple[0].price + data.multiple[1].price;
+      return travelPrice;
+    }
+    return data.price;
+  }
+
   render() {
 
-    let data = this.props.data;
+    const data = this.props.data;
 
     return (
       <div>
-        <DetailsForm data = {data} className={"flight_detail"} expandedView = {this.props.expandedView} showDetails={this.props.showDetails}/>
-        {this.props.expandedView && data.flightType === "Multiple" &&
-        <div className="flight_detail--expand">
-          <DetailsForm data = {this.props.data} isOpened = {true} />
-          <div className="flight_detail--expand--joiner">
-            <span className="flight_detail--expand--joiner--layover">
-              Layover time
-            </span>
+        <DetailsForm
+          isMultiple = {this.isMultiple(data)}
+          flightName = {this.getFlightName(data)}
+          flightNumber = {this.getFlightNumber(data)}
+          origin = {this.getOrigin(data)}
+          dest = {this.getDest(data)}
+          depTime = {this.getDepTime(data)}
+          arrTime = {this.getArrTime(data)}
+          timeTaken = {this.getTimeTaken(data)}
+          totalPrice = {this.getTotalPrice(data)}
+          expandedView = {this.props.expandedView}
+          showDetails = {this.props.showDetails}
+        />
+        {this.props.expandedView && this.isMultiple(data) ?
+          <div className="flight_detail--expand">
+            {data.multiple.map((d)=>{
+                return (
+                  <DetailsForm
+                  isMultiple = {true}
+                  isOpened = {true}
+                  flightName = {d.name}
+                  flightNumber = {d.flightNo}
+                  origin = {d.origin}
+                  dest = {d.destination}
+                  depTime = {d.departureTime}
+                  arrTime = {d.arrivalTime}
+                  timeTaken = {this.getTimeTaken(d)}
+                  totalPrice = {d.price}
+                  expandedView = {this.props.expandedView}
+                  showDetails = {this.props.showDetails}
+                />
+              )
+            })
+          }
           </div>
-          <DetailsForm data = {this.props.data} isOpened = {true} />
-        </div>
+          :
+          null
         }
       </div>
     );

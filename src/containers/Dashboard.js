@@ -8,21 +8,20 @@ class DashboardContainer extends React.Component {
 
   render() {
     return (
-        <Dashboard flights = { this.props.flights } showDetails = {this.props.showDetails} expandedView = {this.props.expandedView} />
+        <Dashboard flights = { this.props.flights } showDetails = {(i) => this.props.showDetails(i)} expandedView = {this.props.expandedView} />
     );
   }
 }
 
 const mapStateToProps = (state, ownProps) => ({
-    flights: state.dashboard.flights,
-    expandedView: state.dashboard.expandedView
+    flights: state.dashboard.flights 
 })
 
 const mapDispatchToProps = function(dispatch, ownProps){
   dispatch(getFlights())
   return {
      getFlights: () => dispatch(getFlights()),
-     showDetails: () => dispatch(showDetails())
+     showDetails: (i) => dispatch(showDetails(i))
   }
 }
 

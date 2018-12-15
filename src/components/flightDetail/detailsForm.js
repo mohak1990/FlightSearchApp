@@ -3,6 +3,7 @@ import Input from "../userComponents/input";
 import "../../styles/css/components/flightDetail.css"
 import {getTimeDifference, getTravelTime} from "../../utils"
 import classNames from "classnames"
+
 class DetailsForm extends React.Component {
 
   constructor(props){
@@ -10,12 +11,21 @@ class DetailsForm extends React.Component {
   }
 
   render() {
-
-    let data = this.props.data;
     let isOpened = this.props.isOpened;
     let expandedView = this.props.expandedView;
+
+    let flightName = this.props.flightName;
+    let flightNumber = this.props.flightNumber;
+    let isMultiple = this.props.isMultiple;
+    let origin = this.props.origin;
+    let dest = this.props.dest;
+    let depTime = this.props.depTime;
+    let arrTime = this.props.arrTime;
+    let timeTaken = this.props.timeTaken;
+    let totalPrice = this.props.totalPrice;
+
     let classes = classNames({
-      "flight_detail" : !isOpened 
+      "flight_detail" : !isOpened
     })
 
     return (
@@ -26,46 +36,46 @@ class DetailsForm extends React.Component {
           </span>
           <span className="flight_detail--items">
             <div className="flight_detail--items--info">
-              {data.flightType === "Multiple" && !isOpened ? "Multiple" : data.name}
+              {isMultiple && !isOpened ? "Multiple" : flightName}
             </div>
             <div className="flight_detail--items--info--about">
-              {data.flightType === "Multiple" && !isOpened ?
+              {isMultiple && !isOpened ?
                 <a href="#" onClick={this.props.showDetails}>
                   {!expandedView ? "Show details" : "Hide details"}
                 </a>
                 :
-                data.flightNo
+                flightNumber
               }
             </div>
           </span>
           <span className="flight_detail--items">
             <div className="flight_detail--items--info">
-              {data.departureTime}
+              {depTime}
             </div>
             <div className="flight_detail--items--info--about">
-              {data.origin.split("(")[0]}
+              {origin.split("(")[0]}
             </div>
           </span>
           <span className="flight_detail--items">
             <div className="flight_detail--items--info">
-              {data.arrivalTime}
+              {arrTime}
             </div>
             <div className="flight_detail--items--info--about">
-              {data.destination.split("(")[0]}
+              {dest.split("(")[0]}
             </div>
           </span>
           <span className="flight_detail--items">
             <div className="flight_detail--items--info">
-              {getTravelTime(data)}
+              {timeTaken}
             </div>
             <div className="flight_detail--items--info--about">
-              {data.flightType === "Multiple" ? "Total duration" : data.flightType}
+              {isMultiple ? "Total duration" : "Non-Stop"}
             </div>
           </span>
           <span className="flight_detail--items flight_detail--items--amount">
             {!isOpened &&
             <div className="flight_detail--items--info ">
-              &#8377; {data.price}
+              &#8377; {totalPrice}
             </div>
             }
           </span>

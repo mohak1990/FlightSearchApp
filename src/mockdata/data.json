@@ -18,6 +18,46 @@
   	"origin": "Jaipur (JAI)",
   	"price": 4170
   },
+	{
+		"arrivalTime": "17:00",
+		"date": "2020/11/01",
+		"departureTime": "15:00",
+		"destination": "Jaipur (JAI)",
+		"flightNo": "AI-101",
+		"name": "Air India",
+		"origin": "Pune (PNQ)",
+		"price": 3525
+	},
+  {
+  	"arrivalTime": "19:00",
+  	"date": "2020/11/01",
+  	"departureTime": "18:00",
+  	"destination": "Delhi (DEL)",
+  	"flightNo": "AI-112",
+  	"name": "Air India",
+  	"origin": "Jaipur (JAI)",
+  	"price": 4170
+  },
+	{
+  	"arrivalTime": "9:00",
+  	"date": "2020/11/01",
+  	"departureTime": "8:00",
+  	"destination": "Delhi (DEL)",
+  	"flightNo": "AI-112",
+  	"name": "Air India",
+  	"origin": "Pune (PNQ)",
+  	"price": 4170
+  },
+	{
+		"arrivalTime": "23:00",
+		"date": "2020/11/01",
+		"departureTime": "20:00",
+		"destination": "Delhi (DEL)",
+		"flightNo": "AI-112",
+		"name": "Air India",
+		"origin": "Pune (PNQ)",
+		"price": 4170
+	},
   {
     "arrivalTime": "22:30",
     "date": "2020/11/01",

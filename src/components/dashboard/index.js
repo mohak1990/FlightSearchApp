@@ -1,11 +1,12 @@
 import React from 'react';
 import FlightDetail from '../flightDetail'
 import "../../styles/css/components/dashboard.css"
-
+import {getTimeDifference, getTravelTime} from "../../utils"
 
 class Dashboard extends React.Component {
 
   render() {
+
     return (
       <div className="dashboard">
         <div className = "dashboard--header">
@@ -17,7 +18,7 @@ class Dashboard extends React.Component {
         <div className = "dashboard--content">
         {
           this.props.flights.map((data, i) => {
-            return <FlightDetail data = {data} expandedView = {this.props.expandedView} showDetails = {this.props.showDetails} />
+            return <FlightDetail data = {data.flightDetail} expandedView = {data.expandedView} showDetails = {() => this.props.showDetails(i)} />
           })
         }
         </div>
