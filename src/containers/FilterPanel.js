@@ -1,13 +1,13 @@
 import React from 'react';
 import FilterPanel from '../components/filterPanel'
 import { connect } from 'react-redux'
-import {  } from '../modules/filterPanel'
+import { setTrip } from '../modules/filterPanel'
 
 class FilterPanelContainer extends React.Component {
 
   render() {
     return (
-        <FilterPanel passengers = {this.props.passengers}/>
+        <FilterPanel passengers = {this.props.passengers} onClickTabItem = {this.props.setTrip} />
     );
   }
 }
@@ -19,7 +19,7 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = function(dispatch, ownProps){
 
   return {
-
+    setTrip : (status) => dispatch(setTrip(status))
   }
 }
 

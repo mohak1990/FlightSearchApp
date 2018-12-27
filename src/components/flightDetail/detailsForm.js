@@ -11,7 +11,9 @@ class DetailsForm extends React.Component {
   }
 
   render() {
+    let flightDirection = this.props.flightDirection;
     let isOpened = this.props.isOpened;
+    let isReturnFlight = this.props.isReturnFlight;
     let expandedView = this.props.expandedView;
 
     let flightName = this.props.flightName;
@@ -25,12 +27,15 @@ class DetailsForm extends React.Component {
     let totalPrice = this.props.totalPrice;
 
     let classes = classNames({
-      "flight_detail" : !isOpened
+      "flight_detail" : !isOpened,
+      "flight_detail_return" : isReturnFlight,
+      "flight_detail--selected" : this.props.flightSelected || this.props.returnFlightSelected,
+      "flight_detail--first" : isOpened && this.props.index == 0,
+      "flight_detail--last" : isOpened && this.props.index == this.props.multiflightCount
     })
-
     return (
       <div>
-        <div className={classes}>
+        <div className={classes} onClick={flightDirection == "Return" ? this.props.selectReturnFlight : this.props.selectOneWayFlight}>
           <span className="flight_detail--items">
             <img src="/"/>
           </span>
@@ -80,8 +85,10 @@ class DetailsForm extends React.Component {
             }
           </span>
           <span className="flight_detail--items">
-            {!isOpened &&
+            {!isOpened && !isReturnFlight ?
             <Input type="button" className="flight_detail--items--button" value="Book"/>
+            :
+            null
             }
           </span>
         </div>

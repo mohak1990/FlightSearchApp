@@ -2,6 +2,7 @@ import React from 'react';
 import Tabs from '../userComponents/tabs';
 import "../../styles/css/components/filterPanel.css"
 import Input from "../userComponents/input";
+import AutoComplete from "../userComponents/autoComplete";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
@@ -33,15 +34,15 @@ class FilterPanel extends React.Component {
   render() {
     return (
       <div className="filter_panel">
-        <Tabs>
+        <Tabs onClickTabItem={this.props.onClickTabItem}>
           {[{type: "One Way"}, {type: "Return"}].map((val, i)=>{
             return (
               <div label={val.type}>
                 <div>
-                  <Input type="text" placeholder = "Enter Origin City" className="filter_panel--element" name="origin-city" placeholder="Enter Origin City" />
+                  <AutoComplete type="text" onClick={() => {}} placeholder = "Enter Origin City" className="filter_panel--element" name="origin-city" />
                 </div>
                 <div>
-                  <Input type="text" placeholder = "Enter Destination City" className="filter_panel--element" name="dest-city" placeholder="Enter Destination City" />
+                  <AutoComplete type="text" onClick={() => {}} placeholder = "Enter Destination City" className="filter_panel--element" name="dest-city" />
                 </div>
                 <div>
                   <DatePicker
@@ -50,7 +51,7 @@ class FilterPanel extends React.Component {
                     onChange={this.handleChangeDep}
                   />
                 </div>
-                {val.type === "One Way"?
+                {val.type !== "One Way"?
                 <div>
                   <DatePicker
                     className="filter_panel--element"

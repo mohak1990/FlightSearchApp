@@ -11,11 +11,13 @@ const initialState =  {
       {value: "7", text: "7"},
       {value: "8", text: "8"},
       {value: "9", text: "9"}
-    ]
+    ],
+    isReturnFlight : false
   },
   dashboard:
   {
-    flights: []
+    flights: [],
+    returnFlights: []
   }
 }
 

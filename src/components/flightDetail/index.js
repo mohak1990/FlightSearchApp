@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import Input from "../userComponents/input";
 import "../../styles/css/components/flightDetail.css"
 import {getTimeDifference, getTravelTime} from "../../utils"
@@ -52,6 +52,42 @@ class FlightDetail extends React.Component {
     return data.departureTime;
   }
 
+  getArrStopDate(data){
+
+    if(this.isMultiple(data))
+    {
+      return data.multiple[0].date;
+    }
+    return data.date;
+  }
+
+  getArrStopTime(data){
+
+    if(this.isMultiple(data))
+    {
+      return data.multiple[0].arrivalTime;
+    }
+    return data.departureTime;
+  }
+
+  getDepStopDate(data){
+
+    if(this.isMultiple(data))
+    {
+      return data.multiple[1].date;
+    }
+    return data.date;
+  }
+
+  getDepStopTime(data){
+
+    if(this.isMultiple(data))
+    {
+      return data.multiple[1].departureTime;
+    }
+    return data.departureTime;
+  }
+
   getDest(data){
     if(this.isMultiple(data))
     {
@@ -81,6 +117,11 @@ class FlightDetail extends React.Component {
       return travelTime;
   }
 
+  getLayoverTime(data){
+      const layover = getTravelTime(this.getArrStopDate(data), this.getArrStopTime(data), this.getDepStopDate(data), this.getDepStopTime(data))
+      return layover;
+  }
+
   getTotalPrice(data){
     if(this.isMultiple(data)){
       const travelPrice = data.multiple[0].price + data.multiple[1].price;
@@ -96,6 +137,12 @@ class FlightDetail extends React.Component {
     return (
       <div>
         <DetailsForm
+          flightDirection = {this.props.flightDirection}
+          isReturnFlight = {this.props.isReturnFlight}
+          selectOneWayFlight = {this.props.selectOneWayFlight}
+          selectReturnFlight = {this.props.selectReturnFlight}
+          flightSelected = {this.props.flightSelected}
+          returnFlightSelected = {this.props.returnFlightSelected}
           isMultiple = {this.isMultiple(data)}
           flightName = {this.getFlightName(data)}
           flightNumber = {this.getFlightNumber(data)}
@@ -110,22 +157,30 @@ class FlightDetail extends React.Component {
         />
         {this.props.expandedView && this.isMultiple(data) ?
           <div className="flight_detail--expand">
-            {data.multiple.map((d)=>{
+            <div className="flight_detail--expand--joiner">
+              <span className="flight_detail--expand--joiner--layover">
+                Layover time : {this.getLayoverTime(data)}
+              </span>
+            </div>
+            {data.multiple.map((d, i)=>{
                 return (
-                  <DetailsForm
-                  isMultiple = {true}
-                  isOpened = {true}
-                  flightName = {d.name}
-                  flightNumber = {d.flightNo}
-                  origin = {d.origin}
-                  dest = {d.destination}
-                  depTime = {d.departureTime}
-                  arrTime = {d.arrivalTime}
-                  timeTaken = {this.getTimeTaken(d)}
-                  totalPrice = {d.price}
-                  expandedView = {this.props.expandedView}
-                  showDetails = {this.props.showDetails}
-                />
+                    <DetailsForm
+                      isReturnFlight = {this.props.isReturnFlight}
+                      index = {i}
+                      multiflightCount = {data.multiple.length - 1}
+                      isMultiple = {true}
+                      isOpened = {true}
+                      flightName = {d.name}
+                      flightNumber = {d.flightNo}
+                      origin = {d.origin}
+                      dest = {d.destination}
+                      depTime = {d.departureTime}
+                      arrTime = {d.arrivalTime}
+                      timeTaken = {this.getTimeTaken(d)}
+                      totalPrice = {d.price}
+                      expandedView = {this.props.expandedView}
+                      showDetails = {this.props.showDetails}
+                  />
               )
             })
           }

@@ -1,0 +1,22 @@
+.inputAutoComplete{
+
+  position: relative;
+  z-index: auto;
+
+  .autoComplete{
+
+    position: absolute;
+    left: 5px;
+    top: 32px;
+    z-index: 1;
+
+    &--dropDown{
+      border: 1px solid black;
+      width: 266px;
+      /* height: 200px; */
+      background: #2196f3;
+      color: white;
+      padding: 5px;
+    }
+  }
+}

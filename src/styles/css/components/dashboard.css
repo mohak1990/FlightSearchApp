@@ -1,3 +1,8 @@
+.dashboard--returnFlight {
+  width: 50%;
+  display: inline-block;
+  vertical-align: top; }
+
 .dashboard--header {
   border-bottom: 1px solid black;
   padding: 20px;

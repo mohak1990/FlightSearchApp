@@ -16,10 +16,10 @@ class InputComponent extends React.Component {
     const className = this.props.className;
     const placeholder = this.props.placeholder;
 
-    if(type != "select")
+    if(type !== "select")
     {
       return (
-         <input className = {className} type={type} value = {this.props.value} placeholder={placeholder} />
+         <input className = {className} type={type} name = {this.props.name} value = {this.props.value} placeholder={placeholder} />
       );
     }
     else {
