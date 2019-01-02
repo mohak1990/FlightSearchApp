@@ -4,16 +4,16 @@ const flightPanelReducer = (state = "", action) => {
   switch (action.type) {
     case 'SET_TRIP':
       return {...state, isReturnFlight : action.payload === "Return"}
-    case 'ENTER_ORIGIN_CITY':
+    case 'SET_ORIGIN_CITY':
       return {...state, originCity : action.payload}
-    case 'ENTER_DEST_CITY':
+    case 'SET_DEST_CITY':
       return {...state, destCity: action.payload}
-    case 'ENTER_DEP_DATE':
-      return {...state, deptDate : action.payload}
-    case 'ENTER_RETURN_DATE':
+    case 'SET_DEP_DATE':
+      return {...state, depDate : action.payload}
+    case 'SET_RETURN_DATE':
       return {...state, returnDate: action.payload}
-    case 'SELECT_PASSENGERS':
-      return {...state, passengers: action.payload}
+    case 'SET_PASSENGER_COUNT':
+      return {...state, passengerCount: action.payload}
     default:
       return state
   }
@@ -26,28 +26,28 @@ export const setTrip = payload => ({
   payload
 })
 
-export const enterOriginCity = payload => ({
-  type: 'ENTER_ORIGIN_CITY',
+export const setOriginCity = payload => ({
+  type: 'SET_ORIGIN_CITY',
   payload
 })
 
-export const enterDestCity = payload => ({
-  type: 'ENTER_DEST_CITY',
+export const setDestCity = payload => ({
+  type: 'SET_DEST_CITY',
   payload
 })
 
-export const enterDepDate = payload => {
-  type: 'ENTER_DEP_DATE',
-  payload
-}
-
-export const enterReturnDate = payload => ({
-  type: 'ENTER_RETURN_DATE',
+export const setDepDate = payload => ({
+  type: 'SET_DEP_DATE',
   payload
 })
 
-export const selectPassengers = payload => ({
-  type: 'SELECT_PASSENGERS',
+export const setReturnDate = payload => ({
+  type: 'SET_RETURN_DATE',
+  payload
+})
+
+export const setPassengerCount = payload => ({
+  type: 'SET_PASSENGER_COUNT',
   payload
 })
 

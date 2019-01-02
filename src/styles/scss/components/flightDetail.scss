@@ -19,6 +19,11 @@
     cursor: pointer;
   }
 
+  &--selected:hover {
+    background: #98fb98 !important;
+    cursor: pointer;
+  }
+
   &--first{
     padding-bottom: 15px;
   }

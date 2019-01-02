@@ -1,3 +1,4 @@
+
 [{
 		"arrivalTime": "7:00",
 		"date": "2020/11/01",
@@ -40,7 +41,7 @@
   },
 	{
   	"arrivalTime": "9:00",
-  	"date": "2020/11/01",
+  	"date": "2019/01/31",
   	"departureTime": "8:00",
   	"destination": "Delhi (DEL)",
   	"flightNo": "AI-112",
@@ -49,9 +50,9 @@
   	"price": 4170
   },
 	{
-		"arrivalTime": "23:00",
+		"arrivalTime": "23:02",
 		"date": "2020/11/01",
-		"departureTime": "20:00",
+		"departureTime": "20:02",
 		"destination": "Delhi (DEL)",
 		"flightNo": "AI-112",
 		"name": "Air India",

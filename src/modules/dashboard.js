@@ -1,9 +1,10 @@
 import axios from 'axios'
 import flightJson from '../mockdata/data.json'
 import {getTimeDifference, getTravelTime} from "../utils"
-
+import moment from 'moment'
 
 function setFlightArr(flights, originFlights, destinationFlights){
+
   originFlights.forEach((originData, i) => {
     destinationFlights.forEach((destData, index) => {
       if(originData.destination === destData.origin && getTimeDifference(originData.date, originData.arrivalTime, destData.date, destData.departureTime).asMinutes() > 30)
@@ -20,45 +21,27 @@ function setFlightArr(flights, originFlights, destinationFlights){
   return flights;
 }
 
-function checkReturnFlights(flightJson){
+function checkFlights(flightJson, from, to, date){
 
   let originFlights = [];
   let destinationFlights = [];
   let flights = [];
-  flightJson.forEach((data, i) => {
-    if(data.destination === "Pune (PNQ)" && data.origin === "Delhi (DEL)")
-    {
-      flights.push(data);
-    }
-    else if(data.destination === "Pune (PNQ)")
-    {
-      originFlights.push(data);
-    }
-    else if(data.origin === "Delhi (DEL)")
-    {
-      destinationFlights.push(data);
-    }
-  })
-  return setFlightArr(flights, originFlights, destinationFlights)
-}
 
-function checkOneWayFlights(flightJson){
-
-  let originFlights = [];
-  let destinationFlights = [];
-  let flights = [];
   flightJson.forEach((data, i) => {
-    if(data.origin === "Pune (PNQ)" && data.destination === "Delhi (DEL)")
+    if(moment(data.date, "YYYY/MM/DD").isSame(moment(date)))
     {
-      flights.push(data);
-    }
-    else if(data.origin === "Pune (PNQ)")
-    {
-      originFlights.push(data);
-    }
-    else if(data.destination === "Delhi (DEL)")
-    {
-      destinationFlights.push(data);
+      if(data.origin === from && data.destination === to)
+      {
+        flights.push(data);
+      }
+      else if(data.origin === from)
+      {
+        originFlights.push(data);
+      }
+      else if(data.destination === to)
+      {
+        destinationFlights.push(data);
+      }
     }
   })
   return setFlightArr(flights, originFlights, destinationFlights)
@@ -66,6 +49,8 @@ function checkOneWayFlights(flightJson){
 
 const dashboardReducer = (state = "", action) => {
   switch (action.type) {
+    case 'CLEAR_FLIGHTS':
+      return {...state, flights: [], returnFlights: []}
     case 'GET_FLIGHTS':
       return {...state, flights: [...state.flights, {flightDetail: action.payload, index: action.index, expandedView : false}]}
     case 'GET_FLIGHTS_RETURN':
@@ -88,7 +73,7 @@ const dashboardReducer = (state = "", action) => {
       return {...state, flights: state.flights.map((val, i) => {
         return val.index === action.payload ? {...val, flightSelected: !val.flightSelected} : {...val, flightSelected: false } })
       }
-    case 'SELECT_RETURN': 
+    case 'SELECT_RETURN':
       return {...state, returnFlights: state.returnFlights.map((val, i) => {
         return val.index === action.payload ? {...val, returnFlightSelected: !val.returnFlightSelected} : {...val, returnFlightSelected: false} })
       }
@@ -117,10 +102,34 @@ const dashboardReducer = (state = "", action) => {
 //   }
 // }
 
+export const filterFlights = () => {
+
+   return dispatch => {
+     dispatch(clearFlights()).then(() => {
+       dispatch(getFlights())
+       dispatch(getReturnFlights())
+     })
+   }
+}
+
+export const clearFlights = () => {
+
+  return (dispatch, getState) => {
+    dispatch({
+      type: 'CLEAR_FLIGHTS'
+    })
+    return Promise.resolve();
+  }
+}
+
 export const getFlights = () => {
 
   return (dispatch, getState) => {
-    let allflights = checkOneWayFlights(flightJson);
+    const originCity = getState().filterPanel.originCity;
+    const destCity = getState().filterPanel.destCity;
+    const depDate = getState().filterPanel.depDate;
+
+    let allflights = checkFlights(flightJson, originCity, destCity, depDate);
 
     allflights.forEach((val, i) => {
       dispatch({
@@ -135,7 +144,11 @@ export const getFlights = () => {
 export const getReturnFlights = () => {
 
   return (dispatch, getState) => {
-    let allflightsReturn = checkReturnFlights(flightJson);
+    const originCity = getState().filterPanel.originCity;
+    const destCity = getState().filterPanel.destCity;
+    const returnDate = getState().filterPanel.returnDate;
+
+    let allflightsReturn = checkFlights(flightJson, destCity, originCity, returnDate);
 
     allflightsReturn.forEach((val, i) => {
       dispatch({

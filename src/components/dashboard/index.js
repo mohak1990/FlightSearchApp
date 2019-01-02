@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import FlightDetail from '../flightDetail'
+import moment from 'moment'
 import "../../styles/css/components/dashboard.css"
 import {getTimeDifference, getTravelTime} from "../../utils"
 
@@ -17,9 +18,16 @@ class Dashboard extends React.Component {
     return (
       <div className = {dashboardClass}>
         <div className = "dashboard--header">
-          Pune to Delhi
+          {this.props.flightDirection === "One Way" ?
+            this.props.originCity + " to " + this.props.destCity
+            :
+            this.props.destCity + " to " + this.props.originCity
+          }
           <div className = "dashboard--header--info">
-            Pune to Delhi
+            {this.props.flights.length} flights found
+            &nbsp;
+            &nbsp;
+            {this.props.flightDirection === "One Way" ? moment(this.props.setDepDate).format('MM/DD/YYYY') : moment(this.props.setReturnDate).format('MM/DD/YYYY') }
           </div>
         </div>
         <div className = "dashboard--content">

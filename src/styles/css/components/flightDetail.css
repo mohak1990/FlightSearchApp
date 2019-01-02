@@ -13,6 +13,9 @@
   .flight_detail--selected {
     background: #98fb98;
     cursor: pointer; }
+  .flight_detail--selected:hover {
+    background: #98fb98 !important;
+    cursor: pointer; }
   .flight_detail--first {
     padding-bottom: 15px; }
   .flight_detail--last {

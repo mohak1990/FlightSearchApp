@@ -9,7 +9,8 @@ class AutoCompleteComponent extends React.Component {
     this.setWrapperRef = this.setWrapperRef.bind(this);
     this.handleClickOutside = this.handleClickOutside.bind(this);
     this.state = {
-      text : "",
+      value: "",
+      key: "",
       cityList: [
         {key: "pun", value: "Pune (PNQ)"},
         {key: "bom", value: "Mumbai (BOM)"},
@@ -36,20 +37,21 @@ class AutoCompleteComponent extends React.Component {
   }
 
   enterText(e){
-    this.setState({text: e.target.value, showddlList: true})
-    let ddlList = this.state.cityList.filter((item, i) => {
-      if(e.target.value.trim() !== "" && item.value.toLowerCase().startsWith(e.target.value.toLowerCase()))
+
+    const val = e.target.value;
+    let ddlListArr = this.state.cityList.filter((item, i) => {
+      if(val.trim() !== "" && item.value.toLowerCase().startsWith(val.toLowerCase()))
       {
         return true;
       }
       return false;
     })
 
-    this.setState({ddlList})
+    this.setState({showddlList: true, ddlList: ddlListArr, value: val, key: ""});
   }
 
   onClick(obj){
-    this.setState({text: obj.value, showddlList: false});
+    this.setState({showddlList: false, value: obj.value, key: obj.key});
     this.props.onClick(obj)
   }
 
@@ -58,23 +60,24 @@ class AutoCompleteComponent extends React.Component {
   }
 
   render() {
-
-      let list = this.props.list;
-      let key = this.props.key;
-
+       
       return (
-
           <Fragment>
             <div className="inputAutoComplete" ref={this.setWrapperRef}>
               <div className = "inputBox">
-                 <input className = {this.props.className} onChange={(e) => this.enterText(e)} value = {this.state.text} placeholder={this.props.placeholder} />
+                <input
+                  className = {this.props.className}
+                  onChange={(e) => this.enterText(e)}
+                  value = {this.state.value}
+                  placeholder={this.props.placeholder}
+                />
               </div>
                <div className = "autoComplete">
                {
                  this.state.ddlList.map((obj, i)=>{
                    if(this.state.showddlList)
                    {
-                     return <div className="autoComplete--dropDown" onClick={() => this.onClick(obj)}>
+                     return <div className="autoComplete--dropDown" key={obj.key} onClick={() => this.onClick(obj)}>
                         {obj.value}
                      </div>
                    }

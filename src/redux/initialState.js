@@ -12,7 +12,12 @@ const initialState =  {
       {value: "8", text: "8"},
       {value: "9", text: "9"}
     ],
-    isReturnFlight : false
+    isReturnFlight : false,
+    originCity : "",
+    destCity : "",
+    depDate: null,
+    returnDate: null,
+    passengerCount: -1
   },
   dashboard:
   {

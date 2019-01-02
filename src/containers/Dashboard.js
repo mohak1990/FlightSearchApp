@@ -17,6 +17,9 @@ class DashboardContainer extends React.Component {
          flights = { this.props.flights }
          showDetails = {(i) => this.props.showDetails(i)}
          expandedView = {this.props.expandedView}
+         originCity = {this.props.originCity}
+         destCity = {this.props.destCity}
+         setDepDate = {this.props.depDate}
         />
         {this.props.isReturnFlight &&
           <Dashboard
@@ -26,6 +29,9 @@ class DashboardContainer extends React.Component {
             flights = { this.props.returnFlights }
             showDetails = {(i) => this.props.showDetails(i)}
             expandedView = {this.props.expandedView}
+            originCity = {this.props.originCity}
+            destCity = {this.props.destCity}
+            setReturnDate = {this.props.returnDate}
           />
         }
       </div>
@@ -36,15 +42,15 @@ class DashboardContainer extends React.Component {
 const mapStateToProps = (state, ownProps) => ({
     flights: state.dashboard.flights,
     returnFlights: state.dashboard.returnFlights,
-    isReturnFlight: state.filterPanel.isReturnFlight
+    isReturnFlight: state.filterPanel.isReturnFlight,
+    originCity: state.filterPanel.originCity,
+    destCity: state.filterPanel.destCity,
+    depDate: state.filterPanel.depDate,
+    returnDate: state.filterPanel.returnDate
 })
 
 const mapDispatchToProps = function(dispatch, ownProps){
-  dispatch(getFlights())
-  dispatch(getReturnFlights())
   return {
-   getFlights: () => dispatch(getFlights()),
-   getReturnFlights: () => dispatch(getReturnFlights()),
    showDetails: (i) => dispatch(showDetails(i)),
 
    selectOneWayFlight: (i) => dispatch(selectOneWayFlight(i)),
