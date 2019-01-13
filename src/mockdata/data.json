@@ -1,7 +1,7 @@
 
 [{
 		"arrivalTime": "7:00",
-		"date": "2020/11/01",
+		"date": "2019/01/31",
 		"departureTime": "5:00",
 		"destination": "Jaipur (JAI)",
 		"flightNo": "AI-101",
@@ -9,9 +9,19 @@
 		"origin": "Pune (PNQ)",
 		"price": 3525
 	},
+	{
+  	"arrivalTime": "9:00",
+  	"date": "2019/02/01",
+  	"departureTime": "8:00",
+  	"destination": "Pune (PNQ)",
+  	"flightNo": "AI-112",
+  	"name": "Air India",
+  	"origin": "Delhi (DEL)",
+  	"price": 4170
+  },
   {
   	"arrivalTime": "9:00",
-  	"date": "2020/11/01",
+		"date": "2019/01/31",
   	"departureTime": "8:00",
   	"destination": "Delhi (DEL)",
   	"flightNo": "AI-112",

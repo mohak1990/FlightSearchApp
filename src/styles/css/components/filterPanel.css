@@ -1,5 +1,8 @@
 .filter_panel {
   padding: 5px; }
+  @media screen and (max-width: 700px) {
+    .filter_panel {
+      display: none; } }
   .filter_panel--element {
     border: 1px solid;
     box-sizing: border-box;

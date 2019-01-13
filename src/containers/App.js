@@ -10,7 +10,7 @@ class FlightSearchApp extends React.Component {
   render() {
     return (
       <div className = "flightSearchApp">
-        Flight Search App
+        <div className = "flightSearchApp--header"> Flight Search App </div>
         <div className="appContainer">
           <div className="filterPanelContainer">
             <FilterPanel />

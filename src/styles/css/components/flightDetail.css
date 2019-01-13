@@ -10,6 +10,14 @@
   border: 1px solid black;
   padding: 10px;
   margin: 10px; }
+  .flight_detail--image {
+    width: 35px;
+    height: 35px; }
+    .flight_detail--image--return {
+      -moz-transform: scale(-1, -1);
+      -o-transform: scale(-1, -1);
+      -webkit-transform: scale(-1, -1);
+      transform: scale(-1, -1); }
   .flight_detail--selected {
     background: #98fb98;
     cursor: pointer; }
@@ -22,16 +30,40 @@
     padding-top: 15px; }
   .flight_detail--items {
     padding: 15px;
+    text-align: center;
     display: inline-block;
     vertical-align: middle;
-    width: calc((100% / 7) - 30px); }
+    width: calc((100% / 5) - 45px); }
+    @media screen and (max-width: 700px) {
+      .flight_detail--items {
+        width: calc((100% / 5) - 30px); } }
+    @media screen and (max-width: 405px) {
+      .flight_detail--items {
+        width: calc((100% / 4) - 30px); } }
+    @media screen and (max-width: 405px) {
+      .flight_detail--items--timeTaken {
+        display: none; } }
+    .flight_detail--items--img {
+      width: 40px; }
+      @media screen and (max-width: 700px) {
+        .flight_detail--items--img {
+          display: none; } }
     .flight_detail--items--amount {
       color: #e74040; }
     .flight_detail--items--info {
       font-size: 20px; }
+      @media screen and (max-width: 950px) {
+        .flight_detail--items--info {
+          font-size: 14px; } }
+      @media screen and (max-width: 405px) {
+        .flight_detail--items--info {
+          font-size: 10px; } }
       .flight_detail--items--info--about {
         font-size: 15px;
         color: grey; }
+        @media screen and (max-width: 405px) {
+          .flight_detail--items--info--about {
+            display: none; } }
     .flight_detail--items--button {
       border: 1px solid;
       border-radius: 5px;
@@ -43,7 +75,7 @@
   .flight_detail--expand {
     border: 1px solid black;
     border-top: none;
-    margin: -10px 10px 0 10px;
+    margin: -10px 10px 10px 10px;
     padding: 15px;
     background: #f5f5f5;
     position: relative; }

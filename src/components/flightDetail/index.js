@@ -3,6 +3,7 @@ import Input from "../userComponents/input";
 import "../../styles/css/components/flightDetail.css"
 import {getTimeDifference, getTravelTime} from "../../utils"
 import DetailsForm from "./detailsForm.js"
+import classNames from "classnames"
 
 class FlightDetail extends React.Component {
 

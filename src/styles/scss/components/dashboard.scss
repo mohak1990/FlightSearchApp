@@ -1,7 +1,20 @@
-
 .dashboard {
 
-  &--returnFlight{
+  &--show-flights {
+    height: calc(100% - 80px);
+    overflow: auto;
+  }
+
+  &--no-flights {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+  }
+
+  &--returnFlight {
+    height: 100%;
     width: 50%;
     display: inline-block;
     vertical-align: top;
@@ -11,13 +24,23 @@
     border-bottom: 1px solid black;
     padding: 20px;
     font-size: 20px;
+    box-sizing: border-box;
 
-    &--info{
+    @media screen and (max-width: 950px) {
+      font-size: 14px;
+    }
+
+    @media screen and (max-width: 405px) {
+      font-size: 10px;
+    }
+
+    &--info {
       font-size: 15px;
       color: grey;
     }
   }
 
   &--content {
+    
   }
 }

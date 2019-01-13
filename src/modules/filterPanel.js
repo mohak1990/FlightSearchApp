@@ -3,7 +3,7 @@ import axios from 'axios';
 const flightPanelReducer = (state = "", action) => {
   switch (action.type) {
     case 'SET_TRIP':
-      return {...state, isReturnFlight : action.payload === "Return"}
+      return {...state, isReturnFlight : action.payload === "Return", originCity: "", destCity: "", depDate: null, returnDate: null, passengerCount: -1 }
     case 'SET_ORIGIN_CITY':
       return {...state, originCity : action.payload}
     case 'SET_DEST_CITY':
@@ -21,10 +21,15 @@ const flightPanelReducer = (state = "", action) => {
 
 //--------------------actions---------------------//
 
-export const setTrip = payload => ({
-  type: 'SET_TRIP',
-  payload
-})
+export const setTrip = payload => {
+  return dispatch => {
+    dispatch({
+      type: 'SET_TRIP',
+      payload
+    })
+    return Promise.resolve();
+  }
+}
 
 export const setOriginCity = payload => ({
   type: 'SET_ORIGIN_CITY',

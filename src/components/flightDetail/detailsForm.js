@@ -3,11 +3,17 @@ import Input from "../userComponents/input";
 import "../../styles/css/components/flightDetail.css"
 import {getTimeDifference, getTravelTime} from "../../utils"
 import classNames from "classnames"
+import img from "../../images/img_flight.png"
 
 class DetailsForm extends React.Component {
 
   constructor(props){
       super(props)
+  }
+
+  showDetails(e){
+    e.stopPropagation();
+    this.props.showDetails();
   }
 
   render() {
@@ -28,16 +34,20 @@ class DetailsForm extends React.Component {
 
     let classes = classNames({
       "flight_detail" : !isOpened,
-      "flight_detail_return" : isReturnFlight,
+      "flight_detail_return" : isReturnFlight && !isOpened,
       "flight_detail--selected" : this.props.flightSelected || this.props.returnFlightSelected,
       "flight_detail--first" : isOpened && this.props.index == 0,
       "flight_detail--last" : isOpened && this.props.index == this.props.multiflightCount
     })
+    let imageClass = classNames({
+      "flight_detail--image": true,
+      "flight_detail--image--return": flightDirection === "Return"
+    })
     return (
       <div>
         <div className={classes} onClick={flightDirection == "Return" ? this.props.selectReturnFlight : this.props.selectOneWayFlight}>
-          <span className="flight_detail--items">
-            <img src="/"/>
+          <span className="flight_detail--items flight_detail--items--img">
+            <img className={imageClass} src={img}/>
           </span>
           <span className="flight_detail--items">
             <div className="flight_detail--items--info">
@@ -45,7 +55,7 @@ class DetailsForm extends React.Component {
             </div>
             <div className="flight_detail--items--info--about">
               {isMultiple && !isOpened ?
-                <a href="#" onClick={this.props.showDetails}>
+                <a href="#" onClick={(e) => this.showDetails(e)}>
                   {!expandedView ? "Show details" : "Hide details"}
                 </a>
                 :
@@ -69,8 +79,8 @@ class DetailsForm extends React.Component {
               {dest.split("(")[0]}
             </div>
           </span>
-          <span className="flight_detail--items">
-            <div className="flight_detail--items--info">
+          <span className="flight_detail--items flight_detail--items--timeTaken">
+            <div className="flight_detail--items--info flight_detail--items--info">
               {timeTaken}
             </div>
             <div className="flight_detail--items--info--about">
@@ -84,13 +94,14 @@ class DetailsForm extends React.Component {
             </div>
             }
           </span>
-          <span className="flight_detail--items">
+          {/*<span className="flight_detail--items">
             {!isOpened && !isReturnFlight ?
             <Input type="button" className="flight_detail--items--button" value="Book"/>
             :
             null
             }
           </span>
+          */}
         </div>
 
       </div>

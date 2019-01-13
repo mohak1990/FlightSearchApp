@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import PropTypes from 'prop-types'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { Provider } from 'react-redux'
@@ -6,9 +6,9 @@ import AppContainer from '../containers/App'
 
 const AppRouter = ({ store }) => (
     <Router>
-      <div>
+      <Fragment>
         <Route exact path="/" component={AppContainer} />
-      </div>
+      </Fragment>
     </Router>
 )
 

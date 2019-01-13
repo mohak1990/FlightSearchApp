@@ -16,8 +16,7 @@ function setFlightArr(flights, originFlights, destinationFlights){
       }
     })
   })
-  console.log("flights")
-  console.log(flights)
+
   return flights;
 }
 

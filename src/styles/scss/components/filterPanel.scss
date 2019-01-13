@@ -1,6 +1,9 @@
 .filter_panel{
   padding: 5px;
-  
+  @media screen and (max-width: 700px) {
+    display: none;
+  }
+
   &--element{
     border: 1px solid;
     box-sizing : border-box;

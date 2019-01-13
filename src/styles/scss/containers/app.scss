@@ -1,20 +1,46 @@
+
+.flightSearchApp{
+  overflow: hidden;
+  height: 100%;
+
+  &--header{
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    line-height: 50px;
+    background: #2196f3;
+    color: #fff;
+    font-size: 30px;
+  }
+}
+
 .appContainer {
   width: 100%;
+  margin-top:50px;
   border: 1px solid black;
   display: table;
+  height: calc(100% - 50px);
+  @media screen and (max-width: 700px) {
+    border-left: none;
+  }
 }
 
 .filterPanelContainer {
   margin: 0px;
   width: 20%;
-  float: left;
-
+  vertical-align: top;
+  display: table-cell;
+  height:100%;
+  @media screen and (max-width: 700px) {
+    display: none;
+  }
 }
 
 .dashboardContainer {
   margin: 0px;
-  float: right;
   width: 80%;
   border-left: 1px solid;
   box-sizing: border-box;
+  vertical-align: top;
+  display: table-cell;
 }

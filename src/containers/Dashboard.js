@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import Dashboard from '../components/dashboard'
+import DashboardHeader from '../components/dashboard/header'
 import { connect } from 'react-redux'
 import { getFlights, getReturnFlights, showDetails, selectOneWayFlight, selectReturnFlight } from '../modules/dashboard'
 
@@ -8,33 +9,60 @@ class DashboardContainer extends React.Component {
 
   render() {
     return (
-      <div>
-        <Dashboard
-         flightDirection = {"One Way"}
-         isReturnFlight = {this.props.isReturnFlight}
-         selectOneWayFlight = {this.props.selectOneWayFlight}
-         selectReturnFlight = {this.props.selectReturnFlight}
-         flights = { this.props.flights }
-         showDetails = {(i) => this.props.showDetails(i)}
-         expandedView = {this.props.expandedView}
-         originCity = {this.props.originCity}
-         destCity = {this.props.destCity}
-         setDepDate = {this.props.depDate}
-        />
-        {this.props.isReturnFlight &&
-          <Dashboard
-            flightDirection = {"Return"}
+      <Fragment>
+      {this.props.flights.length ? (
+        <Fragment>
+          <DashboardHeader
+            flights = {this.props.flights}
             isReturnFlight = {this.props.isReturnFlight}
-            selectReturnFlight = {this.props.selectReturnFlight}
-            flights = { this.props.returnFlights }
-            showDetails = {(i) => this.props.showDetails(i)}
-            expandedView = {this.props.expandedView}
             originCity = {this.props.originCity}
             destCity = {this.props.destCity}
-            setReturnDate = {this.props.returnDate}
+            date = {this.props.depDate}
           />
-        }
+          {this.props.isReturnFlight &&
+            <DashboardHeader
+              isReturnFlight = {this.props.isReturnFlight}
+              flights = {this.props.returnFlights}
+              originCity = {this.props.destCity}
+              destCity = {this.props.originCity}
+              date = {this.props.returnDate}
+            />
+          }
+          <div className = "dashboard--show-flights">
+            <Dashboard
+             flightDirection = {"One Way"}
+             isReturnFlight = {this.props.isReturnFlight}
+             selectOneWayFlight = {this.props.selectOneWayFlight}
+             selectReturnFlight = {this.props.selectReturnFlight}
+             flights = { this.props.flights }
+             showDetails = {(i) => this.props.showDetails(i)}
+             expandedView = {this.props.expandedView}
+             originCity = {this.props.originCity}
+             destCity = {this.props.destCity}
+             setDepDate = {this.props.depDate}
+            />
+            {this.props.isReturnFlight &&
+              <Dashboard
+                flightDirection = {"Return"}
+                isReturnFlight = {this.props.isReturnFlight}
+                selectReturnFlight = {this.props.selectReturnFlight}
+                flights = { this.props.returnFlights }
+                showDetails = {(i) => this.props.showDetails(i)}
+                expandedView = {this.props.expandedView}
+                originCity = {this.props.originCity}
+                destCity = {this.props.destCity}
+                setReturnDate = {this.props.returnDate}
+              />
+            }
+          </div>
+        </Fragment>
+      )
+      :
+      <div className = "dashboard--no-flights">
+        Search for Flights
       </div>
+      }
+      </Fragment>
     );
   }
 }
