@@ -1,6 +1,8 @@
 import axios from 'axios'
 import flightJson from '../mockdata/data.json'
 import {getTimeDifference, getTravelTime} from "../utils"
+import { setModal } from './ui'
+
 import moment from 'moment'
 
 function setFlightArr(flights, originFlights, destinationFlights){
@@ -185,5 +187,24 @@ export const flightDay = payload => ({
   payload
 })
 
+export const confirmBooking = (payload) => {
+  console.log("payload")
+  console.log(payload)
+  return (dispatch, getState) => {
+
+    axios({
+        method: 'POST',
+        url: 'https://example.com/request',
+        data: JSON.stringify({payload}),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }).then((data) => {
+        dispatch(setModal(false));
+      }).catch(()=>{
+        dispatch(setModal(false));
+    })
+  }
+}
 
 export default dashboardReducer

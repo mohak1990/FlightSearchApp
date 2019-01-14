@@ -17,19 +17,6 @@ class Dashboard extends React.Component {
     return (
       <div className = {dashboardClass}>
         <div className = "dashboard">
-          {/*<div className = "dashboard--header">
-            {this.props.flightDirection === "One Way" ?
-              this.props.originCity + " to " + this.props.destCity
-              :
-              this.props.destCity + " to " + this.props.originCity
-            }
-            <div className = "dashboard--header--info">
-              {this.props.flights.length} flights found
-              &nbsp;
-              &nbsp;
-              {this.props.flightDirection === "One Way" ? moment(this.props.setDepDate).format('MM/DD/YYYY') : moment(this.props.setReturnDate).format('MM/DD/YYYY') }
-            </div>
-          </div>*/}
           <div className = "dashboard--content">
           {
             this.props.flights.map((data, i) => {

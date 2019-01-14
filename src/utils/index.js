@@ -1,4 +1,4 @@
-import moment from "moment";  
+import moment from "moment";
 
 export function getTimeDifference(depDate, depTime, arrDate, arrTime){
 
@@ -9,6 +9,50 @@ export function getTimeDifference(depDate, depTime, arrDate, arrTime){
 
   return duration;
 }
+
+export function checkSelection(isReturnFlight, flights, returnFlights){
+
+  let oneWaySelection = false;
+  let returnSelection = false;
+
+  if(!isReturnFlight){
+    flights.forEach((val, i) => {
+      if(val.flightSelected)
+      {
+        oneWaySelection = val.flightDetail;
+      }
+    })
+  }
+  else {
+    flights.forEach((val, i) => {
+      if(val.flightSelected)
+      {
+        oneWaySelection = val.flightDetail;
+      }
+    })
+
+    returnFlights.forEach((val, i) => {
+      if(val.returnFlightSelected)
+      {
+        returnSelection = val.flightDetail;
+      }
+    })
+  }
+
+  if(!isReturnFlight && oneWaySelection)
+  {
+    return {oneWay: oneWaySelection};
+  }
+  else if(isReturnFlight && oneWaySelection && returnSelection)
+  {
+    return {oneWay: oneWaySelection, return: returnSelection};
+  }
+  else
+  {
+    return false;
+  }
+}
+
 
 export function getTravelTime(depDate, depTime, arrDate, arrTime){
   let duration = getTimeDifference(depDate, depTime, arrDate, arrTime);
@@ -30,7 +74,7 @@ export function getDistinct(arr, prop){
   return distArray;
 }
 
-export function getDistinct1(array, prop){
-  const distinctData = [...new Set(array.map(obj => obj[prop])) ];
-  return distinctData;
-}
+// export function getDistinct1(array, prop){
+//   const distinctData = [...new Set(array.map(obj => obj[prop])) ];
+//   return distinctData;
+// }

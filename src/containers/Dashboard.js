@@ -80,7 +80,6 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = function(dispatch, ownProps){
   return {
    showDetails: (i) => dispatch(showDetails(i)),
-
    selectOneWayFlight: (i) => dispatch(selectOneWayFlight(i)),
    selectReturnFlight: (i) => dispatch(selectReturnFlight(i))
   }

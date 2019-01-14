@@ -1,7 +1,74 @@
-
-.flightSearchApp{
+.flightSearchApp {
   overflow: hidden;
   height: 100%;
+
+  .confirmBooking {
+    position: fixed;
+    background: rgba(54, 54, 54, 0.5);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: auto;
+
+    &--modal {
+      width: 400px;
+      height: 160px;
+      margin-left: -200px;
+      margin-top: -80px;
+      background: white;
+      border: 1px solid black;
+      text-align: center;
+      border-radius: 3px;
+      top: 50%;
+      left: 50%;
+      position: relative;
+
+      .title{
+        font-weight: bold;
+        height:50px;
+        position: absolute;
+        width: 100%;
+        border-radius: 3px;
+        background: #cdcdcd;
+        padding:15px;
+        box-sizing: border-box;
+
+        .cancelIcon:before{
+          display: inline-block;
+          float: right;
+          margin-top: -10px;
+          margin-right: -5px;
+          cursor: pointer;
+          font-size: 20px;
+          content: "\00d7";
+        }
+      }
+
+      .info{
+        position: absolute;
+        top: 50px;
+        padding:10px;
+      }
+
+      .footer{
+        height:50px;
+        border-radius: 3px;
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        background: #cdcdcd;
+        padding:15px;
+        box-sizing: border-box;
+        text-align: right;
+
+        input {
+          margin-left: 5px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
 
   &--header{
     text-align: center;
@@ -12,6 +79,19 @@
     color: #fff;
     font-size: 30px;
   }
+
+  &--book{
+    width: 100%;
+    line-height: 50px;
+    background-color: red;
+    color: white;
+
+    &--disable{
+      opacity: 0.5;
+      background: grey;
+      cursor: not-allowed;
+    }
+  }
 }
 
 .appContainer {
@@ -19,7 +99,7 @@
   margin-top:50px;
   border: 1px solid black;
   display: table;
-  height: calc(100% - 50px);
+  height: calc(100% - 100px);
   @media screen and (max-width: 700px) {
     border-left: none;
   }
