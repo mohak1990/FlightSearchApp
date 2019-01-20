@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot testing for header component 1`] = `
+<div
+  className="dashboard--header"
+>
+   to 
+  <div
+    className="dashboard--header--info"
+  >
+    0
+     flights found    
+    05/24/2016
+  </div>
+</div>
+`;

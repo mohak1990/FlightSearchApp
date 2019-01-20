@@ -1,8 +1,8 @@
 import axios from 'axios'
 import flightJson from '../mockdata/data.json'
-import {getTimeDifference, getTravelTime} from "../utils"
+import {getTimeDifference} from "../utils"
 import { setModal } from './ui'
-
+import actions from "../constants/actions"
 import moment from 'moment'
 
 function setFlightArr(flights, originFlights, destinationFlights){
@@ -50,31 +50,31 @@ function checkFlights(flightJson, from, to, date){
 
 const dashboardReducer = (state = "", action) => {
   switch (action.type) {
-    case 'CLEAR_FLIGHTS':
+    case actions.CLEAR_FLIGHTS:
       return {...state, flights: [], returnFlights: []}
-    case 'GET_FLIGHTS':
+    case actions.GET_FLIGHTS:
       return {...state, flights: [...state.flights, {flightDetail: action.payload, index: action.index, expandedView : false}]}
-    case 'GET_FLIGHTS_RETURN':
+    case actions.GET_FLIGHTS_RETURN:
       return {...state, returnFlights: [...state.returnFlights, {flightDetail: action.payload, index: action.index, expandedView : false}]}
-    case 'FLIGHT_INFO':
+    case actions.FLIGHT_INFO:
       return {...state, info: action.payload}
-    case 'FLIGHT_COUNT':
+    case actions.FLIGHT_COUNT:
       return {...state, count: action.payload}
-    case 'FLIGHT_DAY':
+    case actions.FLIGHT_DAY:
       return {...state, day: action.payload}
-    case 'SHOW_DETAILS':
+    case actions.SHOW_DETAILS:
       return {...state, flights: state.flights.map((val, i) => {
         return val.index === action.payload ? {...val, expandedView: !val.expandedView} : val})
       }
-    case 'SHOW_RETURN_DETAILS':
+    case actions.SHOW_RETURN_DETAILS:
       return {...state, returnFlights: state.returnFlights.map((val, i) => {
         return val.index === action.payload ? {...val, expandedView: !val.expandedView} : val})
       }
-    case 'SELECT_ONE_WAY':
+    case actions.SELECT_ONE_WAY:
       return {...state, flights: state.flights.map((val, i) => {
         return val.index === action.payload ? {...val, flightSelected: !val.flightSelected} : {...val, flightSelected: false } })
       }
-    case 'SELECT_RETURN':
+    case actions.SELECT_RETURN:
       return {...state, returnFlights: state.returnFlights.map((val, i) => {
         return val.index === action.payload ? {...val, returnFlightSelected: !val.returnFlightSelected} : {...val, returnFlightSelected: false} })
       }
@@ -117,7 +117,7 @@ export const clearFlights = () => {
 
   return (dispatch, getState) => {
     dispatch({
-      type: 'CLEAR_FLIGHTS'
+      type: actions.CLEAR_FLIGHTS
     })
     return Promise.resolve();
   }
@@ -134,7 +134,7 @@ export const getFlights = () => {
 
     allflights.forEach((val, i) => {
       dispatch({
-        type: 'GET_FLIGHTS',
+        type: actions.GET_FLIGHTS,
         payload: val,
         index: i
       })
@@ -153,7 +153,7 @@ export const getReturnFlights = () => {
 
     allflightsReturn.forEach((val, i) => {
       dispatch({
-        type: 'GET_FLIGHTS_RETURN',
+        type: actions.GET_FLIGHTS_RETURN,
         payload: val,
         index: i
       })
@@ -163,35 +163,34 @@ export const getReturnFlights = () => {
 
 
 export const showDetails = payload => ({
-  type: 'SHOW_DETAILS',
+  type: actions.SHOW_DETAILS,
   payload
 })
 
 export const selectOneWayFlight = payload => ({
-  type: 'SELECT_ONE_WAY',
+  type: actions.SELECT_ONE_WAY,
   payload
 })
 
 export const selectReturnFlight = payload => ({
-  type: 'SELECT_RETURN',
+  type: actions.SELECT_RETURN,
   payload
 })
 
-export const flightCount = payload => ({
-  type: 'FLIGHT_COUNT',
-  payload
-})
-
-export const flightDay = payload => ({
-  type: 'FLIGHT_DAY',
-  payload
-})
+// export const flightCount = payload => ({
+//   type: 'FLIGHT_COUNT',
+//   payload
+// })
+//
+// export const flightDay = payload => ({
+//   type: 'FLIGHT_DAY',
+//   payload
+// })
 
 export const confirmBooking = (payload) => {
-  console.log("payload")
-  console.log(payload)
   return (dispatch, getState) => {
-
+    console.log("payload")
+    console.log(payload)
     axios({
         method: 'POST',
         url: 'https://example.com/request',

@@ -2,7 +2,7 @@ import React, {Fragment} from 'react';
 import Dashboard from '../components/dashboard'
 import DashboardHeader from '../components/dashboard/header'
 import { connect } from 'react-redux'
-import { getFlights, getReturnFlights, showDetails, selectOneWayFlight, selectReturnFlight } from '../modules/dashboard'
+import { showDetails, selectOneWayFlight, selectReturnFlight } from '../modules/dashboard'
 
 
 class DashboardContainer extends React.Component {

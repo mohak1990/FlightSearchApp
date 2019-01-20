@@ -1,15 +1,10 @@
 import React from 'react';
-import Input from "../userComponents/input";
-import "../../styles/css/components/flightDetail.css"
-import {getTimeDifference, getTravelTime} from "../../utils"
 import classNames from "classnames"
+import constants from "../../constants";
+import "../../styles/css/components/flightDetail.css"
 import img from "../../images/img_flight.png"
 
 class DetailsForm extends React.Component {
-
-  constructor(props){
-      super(props)
-  }
 
   showDetails(e){
     e.stopPropagation();
@@ -17,6 +12,8 @@ class DetailsForm extends React.Component {
   }
 
   render() {
+
+    let flightInfo = constants.string.flightInfo;
     let flightDirection = this.props.flightDirection;
     let isOpened = this.props.isOpened;
     let isReturnFlight = this.props.isReturnFlight;
@@ -36,27 +33,27 @@ class DetailsForm extends React.Component {
       "flight_detail" : !isOpened,
       "flight_detail_return" : isReturnFlight && !isOpened,
       "flight_detail--selected" : this.props.flightSelected || this.props.returnFlightSelected,
-      "flight_detail--first" : isOpened && this.props.index == 0,
-      "flight_detail--last" : isOpened && this.props.index == this.props.multiflightCount
+      "flight_detail--first" : isOpened && this.props.index === 0,
+      "flight_detail--last" : isOpened && this.props.index === this.props.multiflightCount
     })
     let imageClass = classNames({
       "flight_detail--image": true,
-      "flight_detail--image--return": flightDirection === "Return"
+      "flight_detail--image--return": flightDirection === flightInfo.type.return
     })
     return (
       <div>
-        <div className={classes} onClick={flightDirection == "Return" ? this.props.selectReturnFlight : this.props.selectOneWayFlight}>
+        <div className={classes} onClick={flightDirection === flightInfo.type.return ? this.props.selectReturnFlight : this.props.selectOneWayFlight}>
           <span className="flight_detail--items flight_detail--items--img">
-            <img className={imageClass} src={img}/>
+            <img className={imageClass} src={img} alt="flightimg"/>
           </span>
           <span className="flight_detail--items">
             <div className="flight_detail--items--info">
-              {isMultiple && !isOpened ? "Multiple" : flightName}
+              {isMultiple && !isOpened ? flightInfo.multiple : flightName}
             </div>
             <div className="flight_detail--items--info--about">
               {isMultiple && !isOpened ?
                 <a href="#" onClick={(e) => this.showDetails(e)}>
-                  {!expandedView ? "Show details" : "Hide details"}
+                  {!expandedView ? flightInfo.showDetails : flightInfo.hideDetails}
                 </a>
                 :
                 flightNumber
@@ -94,16 +91,7 @@ class DetailsForm extends React.Component {
             </div>
             }
           </span>
-          {/*<span className="flight_detail--items">
-            {!isOpened && !isReturnFlight ?
-            <Input type="button" className="flight_detail--items--button" value="Book"/>
-            :
-            null
-            }
-          </span>
-          */}
         </div>
-
       </div>
     );
   }

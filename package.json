@@ -5,7 +5,11 @@
   "dependencies": {
     "axios": "^0.18.0",
     "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
     "classnames": "^2.2.6",
+    "jest": "^23.6.0",
     "moment": "^2.23.0",
     "react": "^16.6.0",
     "react-datepicker": "^2.0.0",
@@ -21,7 +25,7 @@
   "scripts": {
     "start": "npm run scss & react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
     "eject": "react-scripts eject",
     "scss": "node-sass ./src/styles/scss -o ./src/styles/css",
     "scss:watch": "npm run scss && node-sass ./src/styles/scss -wo ./src/styles/css"
@@ -36,9 +40,19 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.7.1",
     "immutable": "^4.0.0-rc.12",
     "node-sass": "^4.10.0",
     "react-scripts-sass": "^1.1.3",
+    "react-test-renderer": "^16.7.0",
     "redux-logger": "^3.0.6"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>/src/setupTests.js",
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
+    }
   }
 }

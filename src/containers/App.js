@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames'
 import Dashboard from './Dashboard'
 import FilterPanel from './FilterPanel'
+import constants from "../constants";
 import { connect } from 'react-redux'
 import "../styles/css/containers/app.css"
 import { setModal } from '../modules/ui'
@@ -26,7 +27,7 @@ class FlightSearchApp extends React.Component {
 
     return (
       <div className = "flightSearchApp">
-        <div className = "flightSearchApp--header"> Flight Search App </div>
+        <div className = "flightSearchApp--header"> {constants.string.appName} </div>
         <div className="appContainer">
           <div className="filterPanelContainer">
             <FilterPanel />
@@ -39,11 +40,11 @@ class FlightSearchApp extends React.Component {
         {this.props.isModalOpen && (
         <div className = "confirmBooking">
           <div className = "confirmBooking--modal">
-            <div class='title'> Please confirm your selection
+            <div className='title'> {constants.string.confirmBox.title}
               <span className = "cancelIcon" onClick={() => setModal(false)}></span>
             </div>
-            <div class='info'> Please press Confirm to proceed or press Cancel to go back </div>
-            <div class='footer'>
+            <div className='info'>{constants.string.confirmBox.warning}</div>
+            <div className='footer'>
               <input value="Confirm" type="button" onClick={() => confirmBooking(isBookingAvailable)}/>
               <input value="Cancel" type="button" onClick={() => setModal(false)} />
             </div>

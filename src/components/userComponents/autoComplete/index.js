@@ -1,7 +1,6 @@
 import React, {Fragment} from 'react';
 import "../../../styles/css/components/userComponents/autoComplete.css"
 
-
 class AutoCompleteComponent extends React.Component {
 
   constructor(props){
@@ -11,17 +10,11 @@ class AutoCompleteComponent extends React.Component {
     this.state = {
       value: "",
       key: "",
-      cityList: [
-        {key: "pun", value: "Pune (PNQ)"},
-        {key: "bom", value: "Mumbai (BOM)"},
-        {key: "blr", value: "Bengaluru (BLR)"},
-        {key: "del", value: "Delhi (DEL)"}
-      ],
       ddlList: [],
       showddlList: false
     };
 
-    //I.E. 
+    //I.E.
     if (!String.prototype.startsWith) {
       String.prototype.startsWith = function(searchString, position) {
          position = position || 0;
@@ -47,7 +40,7 @@ class AutoCompleteComponent extends React.Component {
   enterText(e){
 
     const val = e.target.value;
-    let ddlListArr = this.state.cityList.filter((item, i) => {
+    let ddlListArr = this.props.list.filter((item, i) => {
       if(val.trim() !== "" && item.value.toLowerCase().startsWith(val.toLowerCase()))
       {
         return true;
@@ -92,7 +85,6 @@ class AutoCompleteComponent extends React.Component {
                  })
                }
                </div>
-
             </div>
            </Fragment>
       );

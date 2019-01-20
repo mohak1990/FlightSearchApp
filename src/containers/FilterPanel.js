@@ -9,7 +9,7 @@ class FilterPanelContainer extends React.Component {
 
   isDisabled(){
       if(this.props.isReturnFlight === false &&
-        this.props.passengerCount !== -1 &&
+        this.props.passengerCount !== "0" &&
         this.props.originCity !== "" &&
         this.props.destCity !== "" &&
         this.props.depDate !== null
@@ -18,7 +18,7 @@ class FilterPanelContainer extends React.Component {
         return false;
       }
       else if (this.props.isReturnFlight === true &&
-        this.props.passengerCount !== -1 &&
+        this.props.passengerCount !== "0" &&
         this.props.originCity !== "" &&
         this.props.destCity !== "" &&
         this.props.depDate !== null &&
@@ -43,6 +43,7 @@ class FilterPanelContainer extends React.Component {
           returnDate = {this.props.returnDate}
           onSearch = {this.props.filterFlights}
           setPassengerCount = {this.props.setPassengerCount}
+          passengerCount = {this.props.passengerCount}
           isDisabled = {this.isDisabled()}
         />
     );

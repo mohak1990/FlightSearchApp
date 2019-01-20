@@ -1,0 +1,275 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot testing for FilterPanel component 1`] = `
+<div
+  className="filter_panel"
+>
+  <TabsComponent>
+    <div
+      label="One Way"
+    >
+      <div>
+        <AutoCompleteComponent
+          className="filter_panel--element"
+          list={
+            Array [
+              Object {
+                "key": "pun",
+                "value": "Pune (PNQ)",
+              },
+              Object {
+                "key": "bom",
+                "value": "Mumbai (BOM)",
+              },
+              Object {
+                "key": "blr",
+                "value": "Bengaluru (BLR)",
+              },
+              Object {
+                "key": "del",
+                "value": "Delhi (DEL)",
+              },
+            ]
+          }
+          name="origin-city"
+          onClick={[Function]}
+          placeholder="Enter Origin City"
+          type="text"
+        />
+      </div>
+      <div>
+        <AutoCompleteComponent
+          className="filter_panel--element"
+          list={
+            Array [
+              Object {
+                "key": "pun",
+                "value": "Pune (PNQ)",
+              },
+              Object {
+                "key": "bom",
+                "value": "Mumbai (BOM)",
+              },
+              Object {
+                "key": "blr",
+                "value": "Bengaluru (BLR)",
+              },
+              Object {
+                "key": "del",
+                "value": "Delhi (DEL)",
+              },
+            ]
+          }
+          name="dest-city"
+          onClick={[Function]}
+          placeholder="Enter Destination City"
+          type="text"
+        />
+      </div>
+      <div>
+        <DatePicker
+          allowSameDay={false}
+          className="filter_panel--element"
+          dateFormat="MM/dd/yyyy"
+          dateFormatCalendar="LLLL yyyy"
+          disabled={false}
+          disabledKeyboardNavigation={false}
+          dropdownMode="scroll"
+          minDate={2019-01-20T20:08:53.227Z}
+          monthsShown={1}
+          nextMonthButtonLabel="Next month"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onClickOutside={[Function]}
+          onFocus={[Function]}
+          onInputClick={[Function]}
+          onInputError={[Function]}
+          onKeyDown={[Function]}
+          onMonthChange={[Function]}
+          onSelect={[Function]}
+          onYearChange={[Function]}
+          placeholderText="MM/DD/YYYY"
+          preventOpenOnFocus={false}
+          previousMonthButtonLabel="Previous Month"
+          readOnly={false}
+          renderDayContents={[Function]}
+          selected={2019-01-20T20:08:53.193Z}
+          shouldCloseOnSelect={true}
+          showTimeSelect={false}
+          timeCaption="Time"
+          timeIntervals={30}
+          withPortal={false}
+        />
+      </div>
+      <div>
+        <InputComponent
+          className="filter_panel--element"
+          name="passengers"
+          options={Array []}
+          placeholder="Select Passengers"
+          type="select"
+        />
+      </div>
+      <div>
+        <InputComponent
+          className="filter_panel--element filter_panel--element--button"
+          disabled={true}
+          name="search"
+          type="button"
+          value="Search"
+        />
+      </div>
+    </div>
+    <div
+      label="Return"
+    >
+      <div>
+        <AutoCompleteComponent
+          className="filter_panel--element"
+          list={
+            Array [
+              Object {
+                "key": "pun",
+                "value": "Pune (PNQ)",
+              },
+              Object {
+                "key": "bom",
+                "value": "Mumbai (BOM)",
+              },
+              Object {
+                "key": "blr",
+                "value": "Bengaluru (BLR)",
+              },
+              Object {
+                "key": "del",
+                "value": "Delhi (DEL)",
+              },
+            ]
+          }
+          name="origin-city"
+          onClick={[Function]}
+          placeholder="Enter Origin City"
+          type="text"
+        />
+      </div>
+      <div>
+        <AutoCompleteComponent
+          className="filter_panel--element"
+          list={
+            Array [
+              Object {
+                "key": "pun",
+                "value": "Pune (PNQ)",
+              },
+              Object {
+                "key": "bom",
+                "value": "Mumbai (BOM)",
+              },
+              Object {
+                "key": "blr",
+                "value": "Bengaluru (BLR)",
+              },
+              Object {
+                "key": "del",
+                "value": "Delhi (DEL)",
+              },
+            ]
+          }
+          name="dest-city"
+          onClick={[Function]}
+          placeholder="Enter Destination City"
+          type="text"
+        />
+      </div>
+      <div>
+        <DatePicker
+          allowSameDay={false}
+          className="filter_panel--element"
+          dateFormat="MM/dd/yyyy"
+          dateFormatCalendar="LLLL yyyy"
+          disabled={false}
+          disabledKeyboardNavigation={false}
+          dropdownMode="scroll"
+          minDate={2019-01-20T20:08:53.227Z}
+          monthsShown={1}
+          nextMonthButtonLabel="Next month"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onClickOutside={[Function]}
+          onFocus={[Function]}
+          onInputClick={[Function]}
+          onInputError={[Function]}
+          onKeyDown={[Function]}
+          onMonthChange={[Function]}
+          onSelect={[Function]}
+          onYearChange={[Function]}
+          placeholderText="MM/DD/YYYY"
+          preventOpenOnFocus={false}
+          previousMonthButtonLabel="Previous Month"
+          readOnly={false}
+          renderDayContents={[Function]}
+          selected={2019-01-20T20:08:53.193Z}
+          shouldCloseOnSelect={true}
+          showTimeSelect={false}
+          timeCaption="Time"
+          timeIntervals={30}
+          withPortal={false}
+        />
+      </div>
+      <div>
+        <DatePicker
+          allowSameDay={false}
+          className="filter_panel--element"
+          dateFormat="MM/dd/yyyy"
+          dateFormatCalendar="LLLL yyyy"
+          disabled={false}
+          disabledKeyboardNavigation={false}
+          dropdownMode="scroll"
+          minDate={2019-01-21T20:08:53.193Z}
+          monthsShown={1}
+          nextMonthButtonLabel="Next month"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onClickOutside={[Function]}
+          onFocus={[Function]}
+          onInputClick={[Function]}
+          onInputError={[Function]}
+          onKeyDown={[Function]}
+          onMonthChange={[Function]}
+          onSelect={[Function]}
+          onYearChange={[Function]}
+          placeholderText="MM/DD/YYYY"
+          preventOpenOnFocus={false}
+          previousMonthButtonLabel="Previous Month"
+          readOnly={false}
+          renderDayContents={[Function]}
+          selected={2019-01-20T20:08:53.193Z}
+          shouldCloseOnSelect={true}
+          showTimeSelect={false}
+          timeCaption="Time"
+          timeIntervals={30}
+          withPortal={false}
+        />
+      </div>
+      <div>
+        <InputComponent
+          className="filter_panel--element"
+          name="passengers"
+          options={Array []}
+          placeholder="Select Passengers"
+          type="select"
+        />
+      </div>
+      <div>
+        <InputComponent
+          className="filter_panel--element filter_panel--element--button"
+          disabled={true}
+          name="search"
+          type="button"
+          value="Search"
+        />
+      </div>
+    </div>
+  </TabsComponent>
+</div>
+`;

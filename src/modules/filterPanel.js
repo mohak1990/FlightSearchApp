@@ -1,18 +1,19 @@
 import axios from 'axios';
+import actions from "../constants/actions"
 
 const flightPanelReducer = (state = "", action) => {
   switch (action.type) {
-    case 'SET_TRIP':
+    case actions.SET_TRIP:
       return {...state, isReturnFlight : action.payload === "Return", originCity: "", destCity: "", depDate: null, returnDate: null, passengerCount: -1 }
-    case 'SET_ORIGIN_CITY':
+    case actions.SET_ORIGIN_CITY:
       return {...state, originCity : action.payload}
-    case 'SET_DEST_CITY':
+    case actions.SET_DEST_CITY:
       return {...state, destCity: action.payload}
-    case 'SET_DEP_DATE':
+    case actions.SET_DEP_DATE:
       return {...state, depDate : action.payload}
-    case 'SET_RETURN_DATE':
+    case actions.SET_RETURN_DATE:
       return {...state, returnDate: action.payload}
-    case 'SET_PASSENGER_COUNT':
+    case actions.SET_PASSENGER_COUNT:
       return {...state, passengerCount: action.payload}
     default:
       return state
@@ -24,7 +25,7 @@ const flightPanelReducer = (state = "", action) => {
 export const setTrip = payload => {
   return dispatch => {
     dispatch({
-      type: 'SET_TRIP',
+      type: actions.SET_TRIP,
       payload
     })
     return Promise.resolve();
@@ -32,32 +33,32 @@ export const setTrip = payload => {
 }
 
 export const setOriginCity = payload => ({
-  type: 'SET_ORIGIN_CITY',
+  type: actions.SET_ORIGIN_CITY,
   payload
 })
 
 export const setDestCity = payload => ({
-  type: 'SET_DEST_CITY',
+  type: actions.SET_DEST_CITY,
   payload
 })
 
 export const setDepDate = payload => ({
-  type: 'SET_DEP_DATE',
+  type: actions.SET_DEP_DATE,
   payload
 })
 
 export const setReturnDate = payload => ({
-  type: 'SET_RETURN_DATE',
+  type: actions.SET_RETURN_DATE,
   payload
 })
 
 export const setPassengerCount = payload => ({
-  type: 'SET_PASSENGER_COUNT',
+  type: actions.SET_PASSENGER_COUNT,
   payload
 })
 
 export const searchFlight = payload => {
-  type: 'SEARCH_FLIGHT',
+  type: actions.SEARCH_FLIGHT,
   payload
 }
 

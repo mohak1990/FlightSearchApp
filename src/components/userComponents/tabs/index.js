@@ -6,7 +6,7 @@ import "../../../styles/css/components/userComponents/tabs.css"
 
 class TabsComponent extends Component {
   static propTypes = {
-    children: PropTypes.instanceOf(Array).isRequired,
+    children: PropTypes.instanceOf(Array).isRequired
   }
 
   constructor(props) {
@@ -36,11 +36,13 @@ class TabsComponent extends Component {
     return (
       <div className="tabs">
         <ol className="tab-list">
-          {children.map((child) => {
+          {children.map((child, i) => {
+
             const { label } = child.props;
 
             return (
               <Tab
+                key = {i}
                 activeTab={activeTab}
                 key={label}
                 label={label}

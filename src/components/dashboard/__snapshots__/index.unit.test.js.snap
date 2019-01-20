@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot testing for dashboard component 1`] = `
+<div
+  className="dashboard"
+>
+  <div
+    className="dashboard--content"
+  />
+</div>
+`;

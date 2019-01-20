@@ -1,9 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux'
-import "../../styles/css/containers/app.css"
-import moment from 'moment'
 import classNames from "classnames"
-
+import moment from 'moment'
+import "../../styles/css/containers/app.css"
 
 class DashboardHeader extends React.Component {
 
@@ -29,5 +27,11 @@ class DashboardHeader extends React.Component {
     );
   }
 }
+
+DashboardHeader.defaultProps = {
+  flights: [],
+  originCity: "",
+  destCity: ""
+};
 
 export default DashboardHeader
