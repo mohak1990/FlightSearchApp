@@ -12,7 +12,7 @@ class FlightDetail extends React.Component {
   }
 
   isMultiple(data){
-    if("multiple" in data)
+    if(data && "multiple" in data)
     {
       return true
     }

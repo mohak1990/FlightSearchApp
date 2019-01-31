@@ -27,7 +27,7 @@ class Dashboard extends React.Component {
                 returnFlightSelected = {data.returnFlightSelected}
                 selectOneWayFlight = {() => this.props.selectOneWayFlight(i)}
                 selectReturnFlight = {() => this.props.selectReturnFlight(i)}
-                showDetails = {() => this.props.showDetails(i)}
+                showDetails = {() => this.props.onShowDetails(i)}
               />
             })
           }

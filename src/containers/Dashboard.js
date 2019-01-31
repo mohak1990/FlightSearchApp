@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { showDetails, selectOneWayFlight, selectReturnFlight } from '../modules/dashboard'
 
 
-class DashboardContainer extends React.Component {
+export class DashboardContainer extends React.Component {
 
   render() {
     return (
@@ -35,7 +35,7 @@ class DashboardContainer extends React.Component {
              selectOneWayFlight = {this.props.selectOneWayFlight}
              selectReturnFlight = {this.props.selectReturnFlight}
              flights = { this.props.flights }
-             showDetails = {(i) => this.props.showDetails(i)}
+             onShowDetails = {(i) => this.props.showDetails(i)}
              expandedView = {this.props.expandedView}
              originCity = {this.props.originCity}
              destCity = {this.props.destCity}
@@ -47,7 +47,7 @@ class DashboardContainer extends React.Component {
                 isReturnFlight = {this.props.isReturnFlight}
                 selectReturnFlight = {this.props.selectReturnFlight}
                 flights = { this.props.returnFlights }
-                showDetails = {(i) => this.props.showDetails(i)}
+                onShowDetails = {(i) => this.props.showDetails(i)}
                 expandedView = {this.props.expandedView}
                 originCity = {this.props.originCity}
                 destCity = {this.props.destCity}

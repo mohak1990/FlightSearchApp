@@ -14,7 +14,7 @@ it('render FilterPanel correctly', () => {
     expect(FilterPanelComponent.hasClass('filter_panel')).toBeTruthy();
 });
 
-it('check if FilterPanel component exist', () => {
+it('check if Tabs component exist', () => {
     const FilterPanelComponent = shallow(<FilterPanel onSearch={()=>{}} />);
-    expect(FilterPanelComponent.find('Tabs')).toHaveLength(1);
+    expect(FilterPanelComponent.find('TabsComponent')).toHaveLength(1);
 });

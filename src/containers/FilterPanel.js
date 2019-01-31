@@ -4,8 +4,7 @@ import { connect } from 'react-redux'
 import { setTrip, setOriginCity, setDestCity, setDepDate, setReturnDate, setPassengerCount } from '../modules/filterPanel'
 import { filterFlights, clearFlights } from '../modules/dashboard'
 
-class FilterPanelContainer extends React.Component {
-
+export class FilterPanelContainer extends React.Component {
 
   isDisabled(){
       if(this.props.isReturnFlight === false &&
