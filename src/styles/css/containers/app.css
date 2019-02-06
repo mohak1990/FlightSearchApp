@@ -50,23 +50,28 @@
         bottom: 0;
         background: #cdcdcd;
         padding: 15px;
-        box-sizing: border-box;
-        text-align: right; }
-        .flightSearchApp .confirmBooking--modal .footer input {
-          margin-left: 5px;
-          cursor: pointer; }
+        box-sizing: border-box; }
+        .flightSearchApp .confirmBooking--modal .footer--total {
+          color: #ff0000;
+          float: left; }
+        .flightSearchApp .confirmBooking--modal .footer--events {
+          text-align: right;
+          float: right; }
+          .flightSearchApp .confirmBooking--modal .footer--events input {
+            margin-left: 5px;
+            cursor: pointer; }
   .flightSearchApp--header {
     text-align: center;
     position: fixed;
     width: 100%;
     line-height: 50px;
-    background: #2196f3;
+    background: hotpink;
     color: #fff;
     font-size: 30px; }
   .flightSearchApp--book {
     width: 100%;
     line-height: 50px;
-    background-color: red;
+    background-color: hotpink;
     color: white;
     cursor: pointer; }
     .flightSearchApp--book--disable {

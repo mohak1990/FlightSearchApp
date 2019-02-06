@@ -41,11 +41,11 @@ export function checkSelection(isReturnFlight, flights, returnFlights){
 
   if(!isReturnFlight && oneWaySelection)
   {
-    return {oneWay: oneWaySelection};
+    return {oneWay: oneWaySelection, totalAmount: oneWaySelection.price};
   }
   else if(isReturnFlight && oneWaySelection && returnSelection)
   {
-    return {oneWay: oneWaySelection, return: returnSelection};
+    return {oneWay: oneWaySelection, return: returnSelection, totalAmount: oneWaySelection.price + returnSelection.price};
   }
   else
   {
@@ -73,8 +73,3 @@ export function getDistinct(arr, prop){
   })
   return distArray;
 }
-
-// export function getDistinct1(array, prop){
-//   const distinctData = [...new Set(array.map(obj => obj[prop])) ];
-//   return distinctData;
-// }

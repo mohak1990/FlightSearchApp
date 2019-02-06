@@ -11,10 +11,6 @@ class InputComponent extends React.Component {
     onChange: PropTypes.func
   }
 
-  constructor(props){
-    super(props);
-  }
-
   render() {
 
     let inputClasses = classNames(
@@ -22,8 +18,6 @@ class InputComponent extends React.Component {
       "disabled" : this.props.disabled
     })
     const Type = this.props.type;
-    const value = this.props.value;
-    const name = this.props.name;
     const options = this.props.options;
     const placeholder = this.props.placeholder;
 

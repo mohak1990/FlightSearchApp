@@ -9,7 +9,12 @@
 .flight_detail {
   border: 1px solid black;
   padding: 10px;
-  margin: 10px; }
+  margin: 10px;
+  cursor: pointer; }
+  .flight_detail-hyperlink {
+    color: #2196f3;
+    text-decoration: underline;
+    cursor: pointer; }
   .flight_detail--image {
     width: 35px;
     height: 35px; }
@@ -44,12 +49,13 @@
       .flight_detail--items--timeTaken {
         display: none; } }
     .flight_detail--items--img {
-      width: 40px; }
+      width: 40px;
+      height: 40px; }
       @media screen and (max-width: 700px) {
         .flight_detail--items--img {
           display: none; } }
     .flight_detail--items--amount {
-      color: #e74040; }
+      color: hotpink; }
     .flight_detail--items--info {
       font-size: 20px; }
       @media screen and (max-width: 950px) {

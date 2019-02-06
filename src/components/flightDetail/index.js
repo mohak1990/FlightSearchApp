@@ -1,16 +1,10 @@
-import React, {Fragment} from 'react';
-import classNames from "classnames"
-import Input from "../userComponents/input";
+import React from 'react';
 import "../../styles/css/components/flightDetail.css"
-import {getTimeDifference, getTravelTime} from "../../utils"
+import {getTravelTime} from "../../utils"
 import DetailsForm from "./detailsForm.js"
 
 class FlightDetail extends React.Component {
-
-  constructor(props){
-      super(props)
-  }
-
+ 
   isMultiple(data){
     if(data && "multiple" in data)
     {

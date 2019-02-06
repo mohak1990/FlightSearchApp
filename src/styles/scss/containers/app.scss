@@ -60,11 +60,20 @@
         background: #cdcdcd;
         padding:15px;
         box-sizing: border-box;
-        text-align: right;
 
-        input {
-          margin-left: 5px;
-          cursor: pointer;
+        &--total{
+          color: #ff0000;
+          float:left;
+        }
+
+        &--events{
+          text-align: right;
+          float:right;
+
+          input {
+            margin-left: 5px;
+            cursor: pointer;
+          }
         }
       }
     }
@@ -75,7 +84,7 @@
     position: fixed;
     width: 100%;
     line-height: 50px;
-    background: #2196f3;
+    background: hotpink;
     color: #fff;
     font-size: 30px;
   }
@@ -83,10 +92,10 @@
   &--book{
     width: 100%;
     line-height: 50px;
-    background-color: red;
+    background-color: hotpink;
     color: white;
     cursor: pointer;
-    
+
     &--disable{
       opacity: 0.5;
       background: grey;

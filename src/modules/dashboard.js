@@ -11,7 +11,7 @@ function setFlightArr(flights, originFlights, destinationFlights){
     destinationFlights.forEach((destData, index) => {
       if(originData.destination === destData.origin && getTimeDifference(originData.date, originData.arrivalTime, destData.date, destData.departureTime).asMinutes() > 30)
       {
-        let multipleFlightObj = {multiple: []};
+        let multipleFlightObj = {multiple: [], price: originData.price + destData.price};
         multipleFlightObj.multiple.push(originData);
         multipleFlightObj.multiple.push(destData);
         flights.push(multipleFlightObj);
@@ -86,7 +86,7 @@ const dashboardReducer = (state = "", action) => {
 //--------------------actions---------------------//
 
 
-//instead of API call, mockdata has been used as mentioned per the mail
+//instead of API call, mockdata has been used as mentioned in the mail
 
 // export const getFlights = () => {
 //   return (dispatch, getState) => {
@@ -176,16 +176,6 @@ export const selectReturnFlight = payload => ({
   type: actions.SELECT_RETURN,
   payload
 })
-
-// export const flightCount = payload => ({
-//   type: 'FLIGHT_COUNT',
-//   payload
-// })
-//
-// export const flightDay = payload => ({
-//   type: 'FLIGHT_DAY',
-//   payload
-// })
 
 export const confirmBooking = (payload) => {
   return (dispatch, getState) => {

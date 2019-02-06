@@ -44,7 +44,6 @@ class TabsComponent extends Component {
               <Tab
                 key = {i}
                 activeTab={activeTab}
-                key={label}
                 label={label}
                 onClick={onClickTabItem}
               />

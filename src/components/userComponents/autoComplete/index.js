@@ -13,15 +13,13 @@ class AutoCompleteComponent extends React.Component {
       ddlList: [],
       showddlList: false
     };
-
-    //I.E.
-    if (!String.prototype.startsWith) {
-      String.prototype.startsWith = function(searchString, position) {
-         position = position || 0;
-        return this.indexOf(searchString, position) === position;
-      };
-    }
   }
+
+  //I.E.
+  startsWith(str, searchString, position) {
+     position = position || 0;
+    return str.indexOf(searchString, position) === position;
+  };
 
   handleClickOutside(event) {
     if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
@@ -41,7 +39,7 @@ class AutoCompleteComponent extends React.Component {
 
     const val = e.target.value;
     let ddlListArr = this.props.list.filter((item, i) => {
-      if(val.trim() !== "" && item.value.toLowerCase().startsWith(val.toLowerCase()))
+      if(val.trim() !== "" && this.startsWith(item.value.toLowerCase(), val.toLowerCase()))
       {
         return true;
       }
@@ -82,6 +80,7 @@ class AutoCompleteComponent extends React.Component {
                         {obj.value}
                      </div>
                    }
+                   return null;
                  })
                }
                </div>

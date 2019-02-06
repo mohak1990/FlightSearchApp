@@ -20,6 +20,7 @@ class FlightSearchApp extends React.Component {
     let flights = this.props.flights;
     let returnFlights = this.props.returnFlights;
     let isBookingAvailable = checkSelection(isReturnFlight, flights, returnFlights);
+    let total = isBookingAvailable.totalAmount;
     let footerClasses = classNames({
       "flightSearchApp--book" : true,
       "flightSearchApp--book--disable" : !isBookingAvailable
@@ -45,8 +46,13 @@ class FlightSearchApp extends React.Component {
             </div>
             <div className='info'>{constants.string.confirmBox.warning}</div>
             <div className='footer'>
-              <input value="Confirm" type="button" onClick={() => confirmBooking(isBookingAvailable)}/>
-              <input value="Cancel" type="button" onClick={() => setModal(false)} />
+              <span className='footer--total'>
+                Total Amount : &#x20B9; {total}
+              </span>
+              <span className='footer--events'>
+                <input value="Confirm" type="button" onClick={() => confirmBooking(isBookingAvailable)}/>
+                <input value="Cancel" type="button" onClick={() => setModal(false)} />
+              </span>
             </div>
           </div>
         </div>

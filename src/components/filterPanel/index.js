@@ -10,10 +10,6 @@ import "react-datepicker/dist/react-datepicker.css";
 
 class FilterPanel extends React.Component {
 
-  constructor(props) {
-    super(props);
-  }
-
   render() {
 
     let flightInfo = constants.string.flightInfo;
@@ -63,6 +59,7 @@ class FilterPanel extends React.Component {
                     minDate={moment(this.props.depDate).add(1, 'days')._d}
                     placeholderText="MM/DD/YYYY"
                     onChange={this.props.setReturnDate}
+                    readOnly = {this.props.depDate === null}
                   />
                 </div> : null}
                 <div>

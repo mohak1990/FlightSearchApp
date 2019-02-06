@@ -52,7 +52,7 @@ class DetailsForm extends React.Component {
             </div>
             <div className="flight_detail--items--info--about">
               {isMultiple && !isOpened ?
-                <a href="#" onClick={(e) => this.showDetails(e)}>
+                <a className="flight_detail-hyperlink" onClick={(e) => this.showDetails(e)}>
                   {!expandedView ? flightInfo.showDetails : flightInfo.hideDetails}
                 </a>
                 :
